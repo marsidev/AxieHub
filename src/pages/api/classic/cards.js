@@ -1,6 +1,6 @@
 import nc from 'next-connect'
-import { onError, onNoMatch } from '@middlewares/nc'
-import cacher from '@middlewares/cacher'
+import { onError, onNoMatch } from '../../../middlewares/nc'
+import cacher from '../../../middlewares/cacher'
 import cardsData from '@assets/data/classic/cards.json'
 import { filterObjectArray } from '@utils/index'
 import { formatClassicCardsData as formatter } from '@utils/formatter'
