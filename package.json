@@ -1,0 +1,65 @@
+{
+	"name": "next-chakra-starter",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"dev": "(if exist .next rd /s /q .next 2>nul) && next dev -p 5000",
+		"build": "next build",
+		"start": "next start -p $PORT",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
+	},
+	"dependencies": {
+		"@chakra-ui/react": "^2.0.0-next.1",
+		"@emotion/react": "^11",
+		"@emotion/styled": "^11",
+		"@fontsource/nunito": "^4.5.8",
+		"@fontsource/open-sans": "^4.5.8",
+		"axios": "^0.26.1",
+		"chakra-react-select": "^3.2.0",
+		"framer-motion": "^6",
+		"next": "^12.1.5",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"react-hook-form": "^7.29.0",
+		"react-icons": "^4.3.1",
+		"zustand": "^3.7.2"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.23",
+		"eslint": "^8.13.0",
+		"eslint-config-xo": "^0.40.0",
+		"eslint-config-xo-react": "^0.27.0",
+		"eslint-plugin-react": "^7.29.4",
+		"eslint-plugin-react-hooks": "^4.4.0"
+	},
+	"packageManager": "pnpm@7.0.0-rc.3",
+	"engines": {
+		"node": "14.x",
+		"pnpm": "7.x"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"babel-loader",
+				"@babel/core",
+				"@chakra-ui/form-control",
+				"@chakra-ui/icon",
+				"@chakra-ui/layout",
+				"@chakra-ui/menu",
+				"@chakra-ui/spinner",
+				"@chakra-ui/system"
+			],
+			"allowedVersions": {
+				"eslint": "8",
+				"eslint-plugin-promise": "6",
+				"react": "18",
+				"react-dom": "18"
+			}
+		}
+	},
+	"peerDependencies": {
+		"@fontsource/nunito": "^4.5.8"
+	}
+}

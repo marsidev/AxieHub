@@ -1,0 +1,239 @@
+@supports (display: grid) {
+  .cardlist-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, 100%); */
+    grid-template-columns: repeat(auto-fill, 234px);
+    grid-gap: 32px;
+    gap: 32px;
+    margin-top: 48px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cardlist-container-cdamage {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, 100%); */
+    grid-template-columns: repeat(auto-fill, 218px);
+    grid-gap: 100%;
+    gap: 100%;
+    margin-top: 5%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.card_item {
+  position: relative;
+}
+
+.card_item__header {
+  text-align: center;
+  margin-bottom: 6%;
+}
+
+.card_item__icon_part_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_item__part_name {
+  font-weight: 600;
+  margin-left: 3%;
+  text-transform: uppercase;
+  line-height: 85%;
+  font-size: 85%;
+}
+
+/* add % */
+.card_item__type {
+  margin-left: 6px;
+  text-transform: lowercase;
+  font-size: 12px;
+  margin-bottom: -8px;
+  margin-top: -4px;
+}
+
+.card_item__body {
+  position: relative;
+  background-color: #2b2c2a;
+  border-radius: 7%;
+  height: auto;
+}
+
+.theme--dark.v-image {
+  color: #fff;
+}
+
+.v-responsive {
+  position: relative;
+  overflow: hidden;
+  flex: 1 0 auto;
+  max-width: 100%;
+  display: flex;
+}
+
+.v-image {
+  z-index: 0;
+}
+
+.v-responsive__sizer {
+  transition: padding-bottom .2s cubic-bezier(.25, .8, .5, 1);
+  flex: 1 0 0 px;
+  /* padding-bottom: 133.333%;  */
+}
+
+.v-image__image--contain {
+  background-size: contain;
+}
+
+.v-image__image {
+  background-repeat: no-repeat;
+}
+
+.v-image__image,
+.v-image__placeholder {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.v-application--is-ltr .v-responsive__sizer~.v-responsive__content {
+  margin-left: -100%;
+}
+
+.v-responsive__content {
+  flex: 1 0 0px;
+  max-width: 100%;
+}
+
+/* .ability_bg {
+    background-image: url(https://storage.googleapis.com/axie-cdn/game/cards/base/aquatic-back-04.png);
+    background-position: center center;
+} */
+
+.card_item__energy,
+.card_item__skill_name {
+  position: absolute;
+  color: #fff;
+  justify-content: center;
+  font-family: "AxieFont", cursive;
+  display: flex;
+  align-items: center;
+}
+
+.card_item__skill_name {
+  top: 5%;
+  left: 4%;
+  font-size: 120%;
+  /* padding: 0 8px; */
+  text-align: center;
+  height: 12%;
+  width: 100%;
+}
+
+.card_item__energy {
+  font-size: 210%;
+  top: 2%;
+  left: 2.5%;
+  height: 16%;
+  width: 24%;
+  text-shadow: #83152b -2px 0, #83152b 0 2px, #83152b 2px 0, #83152b 0 -2px;
+}
+
+.card_item__effect {
+  color: #fff;
+  position: absolute;
+  bottom: 8%;
+  left: 0%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_item__effect_image {
+  width: 50%;
+}
+
+@supports (object-fit: contain) {
+  .card_item__effect_image {
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+}
+
+.card_item__description,
+.card_item__statistic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_item__description {
+  color: #bbb;
+  font-size: 80%;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  padding: 0 12% 0 24%;
+  text-align: center;
+  height: 38%;
+  width: 100%;
+}
+
+.card_item__statistic--attack {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+}
+
+.card_item__statistic--defense {
+  position: absolute;
+  top: 39%;
+  left: -10%;
+}
+
+.card_item__statistic {
+  width: 22.667%;
+  height: 17%;
+  /* height: 54px;
+    width: 54px; */
+  border-radius: 50%;
+  background-color: #344829;
+}
+
+.card_item__description,
+.card_item__statistic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_item__statistic_wrapper {
+  position: relative;
+}
+
+.card_item__statistic_icon,
+.card_item__statistic_value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card_item__statistic_icon {
+  width: 1.4em;
+  /* width: 400% !important; */
+}
+
+.card_item__statistic_value {
+  font-family: "AxieFont", cursive;
+  font-size: 160%;
+  color: #fff;
+  text-shadow: #83152b -2px 0, #83152b 0 2px, #83152b 2px 0, #83152b 0 -2px;
+}
