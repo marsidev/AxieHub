@@ -4,6 +4,7 @@ specifiers:
   '@chakra-ui/react': ^2.0.0-next.1
   '@emotion/react': ^11
   '@emotion/styled': ^11
+  '@fontsource/changa-one': ^4.5.6
   '@fontsource/nunito': ^4.5.8
   '@fontsource/open-sans': ^4.5.8
   '@types/node': ^17.0.23
@@ -28,6 +29,7 @@ dependencies:
   '@chakra-ui/react': 2.0.0-next.1_634d89c91765313e9a678b616bbb206c
   '@emotion/react': 11.9.0_react@18.0.0
   '@emotion/styled': 11.8.1_0381be9ef9d4f3389e973d8e2731d4a2
+  '@fontsource/changa-one': 4.5.6
   '@fontsource/nunito': 4.5.8
   '@fontsource/open-sans': 4.5.8
   axios: 0.26.1
@@ -1157,6 +1159,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/changa-one/4.5.6:
+    resolution: {integrity: sha512-0z1nEF0n3dEdC/Ej87oOmzMCwfvybtoxziltVYN/iCL1tlAyUgLTpg3DJzqVBQRdgEygI9I/AnBijFYvMjoafQ==}
+    dev: false
 
   /@fontsource/nunito/4.5.8:
     resolution: {integrity: sha512-JrXmYKyrhM+80808hk85+ieuXOvZqVdAyAA9Xsqz4L+dwGpfJ08e+4vjVNcfVn4YLkgpC57WW2GTn3Xwkv3NIQ==}
