@@ -20,6 +20,8 @@
 		"chakra-react-select": "^3.2.0",
 		"framer-motion": "^6",
 		"next": "^12.1.5",
+		"next-connect": "^0.12.2",
+		"node-cache": "^5.1.2",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"react-hook-form": "^7.29.0",

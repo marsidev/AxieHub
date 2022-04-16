@@ -18,3 +18,14 @@ export function sortObjectByField(a, field, sortMode) {
 		return a[field] > b[field] ? -1 : 1
 	}
 }
+
+export const filterObjectArray = (data, filter) => {
+	let filteredData = data
+	for (const q in filter) {
+		if (data[0][q]) {
+			filteredData = filteredData.filter(card => card[q] === filter[q])
+		}
+	}
+
+	return filteredData
+}

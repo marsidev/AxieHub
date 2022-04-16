@@ -24,6 +24,7 @@
     "capitalized-comments": "off",
     "comma-dangle": [ "warn", "never" ],
     "curly": ["error", "multi-line"],
+    "guard-for-in": "off",
     "jsx-quotes": [ "error", "prefer-single" ],
     "no-mixed-spaces-and-tabs": "off",
     "no-console": "off",
