@@ -45,7 +45,6 @@
   font-size: 85%;
 }
 
-/* add % */
 .card_item__type {
   margin-left: 6px;
   text-transform: lowercase;
@@ -120,7 +119,7 @@
   position: absolute;
   color: #fff;
   justify-content: center;
-  font-family: "AxieFont", cursive;
+  font-family: "Changa One", cursive;
   display: flex;
   align-items: center;
 }
@@ -128,15 +127,14 @@
 .card_item__skill_name {
   top: 5%;
   left: 4%;
-  font-size: 120%;
-  /* padding: 0 8px; */
+  font-size: 1em;
   text-align: center;
   height: 12%;
   width: 100%;
 }
 
 .card_item__energy {
-  font-size: 210%;
+  font-size: 1.6em;
   top: 2%;
   left: 2.5%;
   height: 16%;
@@ -176,7 +174,7 @@
 
 .card_item__description {
   color: #bbb;
-  font-size: 80%;
+  font-size: .65em;
   position: absolute;
   bottom: 0%;
   left: 0%;
@@ -201,8 +199,6 @@
 .card_item__statistic {
   width: 22.667%;
   height: 17%;
-  /* height: 54px;
-    width: 54px; */
   border-radius: 50%;
   background-color: #344829;
 }
@@ -228,12 +224,11 @@
 
 .card_item__statistic_icon {
   width: 1.4em;
-  /* width: 400% !important; */
 }
 
 .card_item__statistic_value {
-  font-family: "AxieFont", cursive;
-  font-size: 160%;
+  font-family: "Changa One", cursive;
+  font-size: 1.3em;
   color: #fff;
   text-shadow: #83152b -2px 0, #83152b 0 2px, #83152b 2px 0, #83152b 0 -2px;
 }
