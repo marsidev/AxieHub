@@ -19,8 +19,9 @@ const App = ({ cardsData }) => {
 
 	const onSubmit = data => {
 		// check for empty values
+		// console.log({ data })
 		for (const key in data) {
-			if (data[key].length === 0 && data[key] !== '') {
+			if (data[key]?.length === 0 && data[key] !== '') {
 				data[key] = [defaultOption]
 				setValue(key, [defaultOption])
 			}
@@ -29,7 +30,7 @@ const App = ({ cardsData }) => {
 		applyFilters(data)
 	}
 
-	const applyFilters = filter => {
+	function applyFilters (filter) {
 		const { textFilter, orderBy, orderMode, classFilter, energyFilter, partFilter, attackFilter, effectFilter } = filter
 		const temp = []
 
