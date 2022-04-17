@@ -1,10 +1,10 @@
 import { useState, memo } from 'react'
 import { Box, Flex, IconButton } from '@chakra-ui/react'
-import AbilityCard from '@components/AbilityCard'
+import AbilityCard from '@components/ClassicCard'
 import { sortObjectByField } from '@utils/index'
 import { queryMatch, filterMatch } from '@utils/classicCardsFilter'
 import { RiFilterLine as FilterIcon, RiFilterFill as FilterFillIcon } from 'react-icons/ri'
-import { FaRedo as ResetIcon, FaCog as CogIcon } from 'react-icons/fa'
+import { FaRedo as ResetIcon } from 'react-icons/fa'
 import FilterForm from './FilterForm'
 import { useForm } from 'react-hook-form'
 
@@ -87,12 +87,6 @@ const App = ({ cardsData }) => {
 						icon={<ResetIcon />}
 						aria-label='reset filter form'
 						onClick={resetFilters}
-					/>
-
-					<IconButton
-						variant='ghost'
-						icon={<CogIcon />}
-						aria-label='toggle filter form'
 					/>
 				</Flex>
 

@@ -1,3 +1,4 @@
+import { memo } from 'react'
 const icon = () => (
 	<svg
 		viewBox='936 3010 10 13'
@@ -11,4 +12,4 @@ const icon = () => (
 	</svg>
 )
 
-export default icon
+export default memo(icon)

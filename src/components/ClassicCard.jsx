@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { Box, Flex, useColorModeValue, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import PartIcon from '@components/PartIcon'
-import AtkIcon from '@components/svg/attack'
-import DefIcon from '@components/svg/defense'
+import AtkIcon from '@components/svg/Attack'
+import DefIcon from '@components/svg/Defense'
 
 const variants = {
 	initial: { scale: 1 },
@@ -128,4 +129,4 @@ export const AbilityCard = ({ card }) => {
 	)
 }
 
-export default AbilityCard
+export default memo(AbilityCard)

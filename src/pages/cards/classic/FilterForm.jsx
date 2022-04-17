@@ -8,7 +8,7 @@ import {
 	partOptions,
 	effectOptions,
 	attackOptions
-} from './options'
+} from '@utils/classicCardsFilter'
 
 import Select from '@components/form/Select'
 import Input from '@components/form/Input'
