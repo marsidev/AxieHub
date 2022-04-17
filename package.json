@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"preinstall": "npm install -g pnpm && pnpm -v && npx only-allow pnpm",
+		"preinstall": "npx only-allow pnpm",
 		"dev": "(if exist .next rd /s /q .next 2>nul) && next dev -p 5000",
 		"build": "next build",
 		"start": "next start -p $PORT",
@@ -39,8 +39,7 @@
 	},
 	"packageManager": "pnpm@7.0.0-rc.3",
 	"engines": {
-		"node": "14.x",
-		"pnpm": "7.x"
+		"node": ">=16"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
