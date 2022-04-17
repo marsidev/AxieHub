@@ -12,7 +12,7 @@ import useMobile from '@hooks/useMobile'
 import Link from '@components/Link'
 
 const TWITTER_URL = 'https://twitter.com/marsigliacr'
-const GITHUB_URL = 'https://github.com/marsigliadev'
+const GITHUB_URL = 'https://github.com/marsigliadev/AxieHub'
 
 const SocialButton = ({ children, href, isMobile }) => {
 	return (
