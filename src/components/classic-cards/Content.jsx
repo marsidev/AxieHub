@@ -72,7 +72,7 @@ const App = ({ cardsData }) => {
 	}
 
 	return (
-		<Box as='section' w='90%' py={4} minH='82vh' border='2px solid green'>
+		<Box as='section' w='90%' py={4}>
 			<Box>
 				<Flex flexDir='row' justify='flex-end'>
 					<IconButton
