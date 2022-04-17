@@ -28,11 +28,11 @@ const Navbar = props => {
 			>
 				<Brand />
 				<Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
-					<NavItem color='mystic'>
+					<NavItem color='savannah'>
 						<Link href='/cards/classic'>Classic Cards</Link>
 					</NavItem>
 
-					<NavItem color='savannah'>
+					<NavItem color='origin'>
 						<Link href='/cards/origin'>Origin Cards</Link>
 					</NavItem>
 					<ThemeTogler borderRadius='full' size={isMobile ? 'sm' : 'lg'} />
