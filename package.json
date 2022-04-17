@@ -39,7 +39,7 @@
 	},
 	"packageManager": "pnpm@7.0.0-rc.3",
 	"engines": {
-		"node": ">=16"
+		"node": "16.x"
 	},
 	"pnpm": {
 		"peerDependencyRules": {
