@@ -1,7 +1,14 @@
 import { Box, Flex, useColorModeValue, Image } from '@chakra-ui/react'
-import PartIcon from '@/components/PartIcon'
+import { motion } from 'framer-motion'
+import PartIcon from '@components/PartIcon'
 import AtkIcon from '@components/svg/attack'
 import DefIcon from '@components/svg/defense'
+
+const variants = {
+	initial: { scale: 1 },
+	tap: { scale: 0.95, transition: { duration: 0.15, ease: 'easeOut' } },
+	hover: { scale: 1.05, transition: { duration: 0.15, ease: 'easeOut' } }
+}
 
 export const AbilityCard = ({ card }) => {
 	const {
@@ -22,9 +29,17 @@ export const AbilityCard = ({ card }) => {
 
 	const image = `/images/classic/cards/${id}.png`
 	const effectImage = `/images/classic/effects/${iconId}.png`
+	const MotionBox = motion(Box)
 
 	return (
-		<Box pos='relative' transition='all .2s ease-in-out'>
+		<MotionBox
+			variants={variants}
+			initial='initial'
+			whileTap='tap'
+			whileHover='hover'
+			pos='relative'
+			transition='all .2s ease-in-out'
+		>
 			<Box textAlign='center' mb={1}>
 				<Flex justify='center' align='center'>
 					<PartIcon
@@ -109,7 +124,7 @@ export const AbilityCard = ({ card }) => {
 					</Box>
 				</Box>
 			</Box>
-		</Box>
+		</MotionBox>
 	)
 }
 

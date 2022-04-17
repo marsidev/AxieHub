@@ -21,9 +21,9 @@ export const orderModeOptions = [
 
 export const energyOptions = [
 	{ key: 'any', label: 'Any', value: 'any' },
-	{ key: '0', label: '0', value: '0' },
-	{ key: '1', label: '1', value: '1' },
-	{ key: '2', label: '2', value: '2' }
+	{ key: '0', label: '0', value: 0 },
+	{ key: '1', label: '1', value: 1 },
+	{ key: '2', label: '2', value: 2 }
 ]
 
 export const classOptions = [

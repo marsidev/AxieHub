@@ -12,6 +12,7 @@ export const formatClassicCardsData = data => {
 			type,
 			partValue,
 			...data[part],
+			defaultStats: data[part].defaultAttack + data[part].defaultDefense,
 			image,
 			effectImage
 		}
@@ -38,6 +39,7 @@ export const formatOriginCardsData = data => {
 		const temp = {
 			cardId,
 			...rest,
+			defaultStats: rest.defaultAttack + rest.defaultDefense,
 			image
 		}
 		newData = [...newData, temp]
