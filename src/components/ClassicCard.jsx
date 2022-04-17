@@ -2,8 +2,8 @@ import { memo } from 'react'
 import { Box, Flex, useColorModeValue, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import PartIcon from '@components/PartIcon'
-import AtkIcon from '@/components/svg/AttackIcon.jsx'
-import DefIcon from '@/components/svg/ShieldIcon.jsx'
+import AtkIcon from '@components/svg/AttackIcon.jsx'
+import DefIcon from '@components/svg/ShieldIcon.jsx'
 
 const variants = {
 	initial: { scale: 1 },

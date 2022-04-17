@@ -13,13 +13,8 @@ import {
 import Select from '@components/form/Select'
 import Input from '@components/form/Input'
 
-const FilterForm = props => {
+const FilterForm = ({ onSubmit, control, ...rest }) => {
 	const id = useId()
-	const {
-		onSubmit,
-		control,
-		...rest
-	} = props
 
 	return (
 		<Box {...rest}>

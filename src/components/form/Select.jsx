@@ -16,7 +16,7 @@ const Selector = ({
 	const { field } = useController({
 		name,
 		control,
-		defaultValue: isMulti ? [initialValue] : initialValue
+		defaultValue: (isMulti ? [initialValue] : initialValue) ?? {}
 	})
 	const { onChange, onBlur, value, ref } = field
 
