@@ -10,12 +10,13 @@ const Selector = ({
 	id,
 	label,
 	size = 'md',
+	isMulti = false,
 	...props
 }) => {
 	const { field } = useController({
 		name,
 		control,
-		defaultValue: [initialValue]
+		defaultValue: isMulti ? [initialValue] : initialValue
 	})
 	const { onChange, onBlur, value, ref } = field
 
@@ -43,6 +44,7 @@ const Selector = ({
 				onBlur={onBlur}
 				value={value}
 				size={size}
+				isMulti={isMulti}
 				{...props}
 			/>
 		</FormControl>
