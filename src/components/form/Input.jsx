@@ -13,8 +13,8 @@ const InputBox = ({
 }) => {
 	const { field } = useController({
 		name,
-		control,
-		defaultValue: initialValue ?? {}
+		control
+		// defaultValue: initialValue ?? {}
 	})
 	const { onChange, onBlur, value, ref } = field
 
