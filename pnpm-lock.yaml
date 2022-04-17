@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@chakra-ui/react': ^2.0.0-next.1
+  '@chakra-ui/theme-tools': ^1.3.6
   '@emotion/react': ^11
   '@emotion/styled': ^11
   '@fontsource/changa-one': ^4.5.6
@@ -27,6 +28,7 @@ specifiers:
 
 dependencies:
   '@chakra-ui/react': 2.0.0-next.1_634d89c91765313e9a678b616bbb206c
+  '@chakra-ui/theme-tools': 1.3.6
   '@emotion/react': 11.9.0_react@18.0.0
   '@emotion/styled': 11.8.1_0381be9ef9d4f3389e973d8e2731d4a2
   '@fontsource/changa-one': 4.5.6
@@ -901,6 +903,18 @@ packages:
       react: 18.0.0
     dev: false
 
+  /@chakra-ui/theme-tools/1.3.6:
+    resolution: {integrity: sha512-Wxz3XSJhPCU6OwCHEyH44EegEDQHwvlsx+KDkUDGevOjUU88YuNqOVkKtgTpgMLNQcsrYZ93oPWZUJqqCVNRew==}
+    peerDependencies:
+      '@chakra-ui/system': '>=1.0.0'
+    peerDependenciesMeta:
+      '@chakra-ui/system':
+        optional: true
+    dependencies:
+      '@chakra-ui/utils': 1.10.4
+      '@ctrl/tinycolor': 3.4.1
+    dev: false
+
   /@chakra-ui/theme-tools/2.0.0-next.0_@chakra-ui+system@2.0.0-next.0:
     resolution: {integrity: sha512-yoJj+id0IxnGmmw++MB5FQ7+DxUBT/iU941GaSrTDA9uJRH4eW+X8ROveDPaLwNYwM57/lf7g0zlkRnFSB6HsA==}
     peerDependencies:
@@ -984,6 +998,15 @@ packages:
       '@chakra-ui/utils': 2.0.0-next.0
       framer-motion: 6.2.10_react-dom@18.0.0+react@18.0.0
       react: 18.0.0
+    dev: false
+
+  /@chakra-ui/utils/1.10.4:
+    resolution: {integrity: sha512-AM91VQQxw8F4F1WDA28mqKY6NFIOuzc2Ekkna88imy2OiqqmYH0xkq8J16L2qj4cLiLozpYqba3C79pWioy6FA==}
+    dependencies:
+      '@types/lodash.mergewith': 4.6.6
+      css-box-model: 1.2.1
+      framesync: 5.3.0
+      lodash.mergewith: 4.6.2
     dev: false
 
   /@chakra-ui/utils/2.0.0-next.0:
