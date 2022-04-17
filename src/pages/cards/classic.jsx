@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Layout from '@layouts/main'
-import Content from './Content'
+import Content from '@components/classic-cards/Content'
 
 export default function App({ cardsData }) {
 	return (
