@@ -11,6 +11,7 @@ const Selector = ({
 	label,
 	size = 'md',
 	isMulti = false,
+	closeMenuOnSelect = false,
 	...props
 }) => {
 	const { field } = useController({
@@ -45,6 +46,7 @@ const Selector = ({
 				value={value}
 				size={size}
 				isMulti={isMulti}
+				closeMenuOnSelect={isMulti ? closeMenuOnSelect : true}
 				classNamePrefix='react-select'
 				{...props}
 			/>
