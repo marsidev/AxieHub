@@ -6,6 +6,15 @@ const nextConfig = {
 	},
 	images: {
 		domains: ['cdn.axieinfinity.com']
+	},
+	async redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/cards/classic',
+				permanent: true
+			}
+		]
 	}
 }
 
