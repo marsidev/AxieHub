@@ -6,7 +6,6 @@
   },
   "extends": [
     "xo",
-    // "xo-react",
     "plugin:react/recommended"
   ],
   "parserOptions": {
