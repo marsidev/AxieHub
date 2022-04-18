@@ -11,7 +11,8 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 		tagVariant: 'solid',
 		selectedOptionStyle: 'color',
 		selectedOptionColor: 'axie',
-		size: 'sm'
+		size: 'sm',
+		closeMenuOnSelect: false
 	}
 
 	return (
@@ -59,7 +60,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						options={options.energyOptions}
 						initialValue={options.energyOptions[0]}
 						isMulti
-						closeMenuOnSelect={false}
 						{...commonSelectProps}
 					/>
 
@@ -71,7 +71,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						options={options.classOptions}
 						initialValue={options.classOptions[0]}
 						isMulti
-						closeMenuOnSelect={false}
 						{...commonSelectProps}
 					/>
 
@@ -83,7 +82,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						options={options.partOptions}
 						initialValue={options.partOptions[0]}
 						isMulti
-						closeMenuOnSelect={false}
 						{...commonSelectProps}
 					/>
 				</Flex>
@@ -97,7 +95,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						options={options.effectOptions}
 						initialValue={options.effectOptions[0]}
 						isMulti
-						closeMenuOnSelect={false}
 						{...commonSelectProps}
 					/>
 
@@ -109,7 +106,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						options={options.attackOptions}
 						initialValue={options.attackOptions[0]}
 						isMulti
-						closeMenuOnSelect={false}
 						{...commonSelectProps}
 					/>
 				</Flex>

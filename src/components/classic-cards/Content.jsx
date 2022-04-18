@@ -1,5 +1,5 @@
 import { useState, memo } from 'react'
-import { Box, Container, Flex, Heading, IconButton, chakra } from '@chakra-ui/react'
+import { Box, Container, Flex, Heading, Button } from '@chakra-ui/react'
 import AbilityCard from '@/components/classic-cards/AbilityCard'
 import { sortObjectByField } from '@utils/index'
 import { queryMatch, filterMatch } from '@utils/classicCardsFilter'
@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form'
 const defaultOption = { key: 'any', label: 'Any', value: 'any' }
 
 const App = ({ cardsData }) => {
-	const [showFilterForm, setShowFilterForm] = useState(true)
+	const [showFilterForm, setShowFilterForm] = useState(false)
 	const { control, handleSubmit, setValue, reset } = useForm()
 	const [cardsList, setCardsList] = useState(cardsData)
 
@@ -61,6 +61,7 @@ const App = ({ cardsData }) => {
 
 		// console.log({ result: temp })
 		setCardsList(temp)
+		setShowFilterForm(false)
 	}
 
 	const resetFilters = () => {
@@ -88,14 +89,17 @@ const App = ({ cardsData }) => {
 				</Heading>
 
 				<Flex flexDir='row' justify='flex-start' align='center'>
-					<IconButton
-						variant='ghost'
-						icon={showFilterForm ? <FilterIcon /> : <FilterFillIcon />}
-						aria-label='toggle filter form'
+					<Button
 						onClick={toggleFilterForm}
+						leftIcon={showFilterForm ? <FilterIcon /> : <FilterFillIcon />}
+						aria-label='toggle filter form'
 						size='sm'
-					/>
-					<chakra.span fontSize='.9em'>toggle filters</chakra.span>
+						variant='ghost'
+						cursor='pointer'
+						colorScheme='savannah'
+					>
+						toggle filters
+					</Button>
 				</Flex>
 
 				<FilterForm
@@ -108,7 +112,10 @@ const App = ({ cardsData }) => {
 				<Box
 					className='cardlist-container'
 					gridTemplateColumns={[
-						'repeat(auto-fill, 180px)',
+						'repeat(auto-fill, 160px)',
+						'repeat(auto-fill, 165px)',
+						'repeat(auto-fill, 170px)',
+						'repeat(auto-fill, 175px)',
 						'repeat(auto-fill, 180px)'
 					]}
 				>
