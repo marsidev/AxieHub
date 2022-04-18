@@ -17,7 +17,7 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 	return (
 		<Box border='1px solid' borderRadius={12} p={2} {...rest}>
 			<form onSubmit={onSubmit} id={id}>
-				<Flex mt={4} gap={4} flexDir='row'>
+				<Flex mt={4} gap={4} flexDir={['column', 'row']}>
 					<Input
 						id={`${id}-textFilter`}
 						name='textFilter'
@@ -50,7 +50,7 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 					/>
 				</Flex>
 
-				<Flex mt={4} gap={4} flexDir='row'>
+				<Flex mt={4} gap={4} flexDir={['column', 'row']}>
 					<Select
 						id={`${id}-energyFilter`}
 						name='energyFilter'
@@ -88,7 +88,7 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 					/>
 				</Flex>
 
-				<Flex mt={4} gap={4} flexDir='row'>
+				<Flex mt={4} gap={4} flexDir={['column', 'row']}>
 					<Select
 						id={`${id}-effectFilter`}
 						name='effectFilter'
@@ -114,13 +114,19 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 					/>
 				</Flex>
 
-				<Flex mt={4} gap={4} flexDir='row'>
-					<Button colorScheme='axie' w='50%' size='sm' type='submit'>
+				<Flex mt={4} gap={4} flexDir={['column', 'row']}>
+					<Button
+						colorScheme='axie'
+						w={['100%', '50%']}
+						size='sm'
+						type='submit'
+					>
 						Apply
 					</Button>
+
 					<Button
 						colorScheme='rarity-mystic'
-						w='50%'
+						w={['100%', '50%']}
 						size='sm'
 						type='button'
 						onClick={resetFilters}
