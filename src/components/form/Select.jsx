@@ -45,6 +45,7 @@ const Selector = ({
 				value={value}
 				size={size}
 				isMulti={isMulti}
+				classNamePrefix='react-select'
 				{...props}
 			/>
 		</FormControl>

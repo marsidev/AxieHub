@@ -26,7 +26,7 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 						control={control}
 						initialValue=''
 						size='sm'
-						// borderRadius={12}
+						borderRadius={12}
 					/>
 
 					<Select

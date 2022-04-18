@@ -33,3 +33,10 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb_hover-bg);
 }
+
+
+/* #\:Rt9lsm\:>div:nth-child(n)>div:nth-child(n)>div>div { */
+.react-select__control {
+  border-radius: 12px !important;
+  /* border-radius: var(--chakra-radii-lg) !important; */
+}
