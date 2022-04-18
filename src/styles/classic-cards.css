@@ -1,22 +1,10 @@
 @supports (display: grid) {
   .cardlist-container {
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, 100%); */
-    grid-template-columns: repeat(auto-fill, 234px);
-    grid-gap: 32px;
-    gap: 32px;
-    margin-top: 48px;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .cardlist-container-cdamage {
-    display: grid;
-    /* grid-template-columns: repeat(auto-fill, 100%); */
-    grid-template-columns: repeat(auto-fill, 218px);
-    grid-gap: 100%;
-    gap: 100%;
-    margin-top: 5%;
+    /* grid-template-columns: repeat(auto-fill, 180px); */
+    grid-gap: 2.4em;
+    gap: 2.4em;
+    margin-top: 2em;
     justify-content: center;
     text-align: center;
   }
@@ -109,11 +97,6 @@
   max-width: 100%;
 }
 
-/* .ability_bg {
-    background-image: url(https://storage.googleapis.com/axie-cdn/game/cards/base/aquatic-back-04.png);
-    background-position: center center;
-} */
-
 .card_item__energy,
 .card_item__skill_name {
   position: absolute;
@@ -127,7 +110,7 @@
 .card_item__skill_name {
   top: 5%;
   left: 4%;
-  font-size: 1em;
+  font-size: .80em;
   text-align: center;
   height: 12%;
   width: 100%;
@@ -174,12 +157,13 @@
 
 .card_item__description {
   color: #bbb;
-  font-size: .65em;
+  font-size: .58em;
   position: absolute;
   bottom: 0%;
   left: 0%;
-  padding: 0 12% 0 24%;
-  text-align: center;
+  padding-inline-start: 2rem;
+  padding-inline-end: 1rem;
+  text-align: left;
   height: 38%;
   width: 100%;
 }

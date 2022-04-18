@@ -1,109 +1,133 @@
 import { memo, useId } from 'react'
-import { Box, Button } from '@chakra-ui/react'
-import {
-	orderOptions,
-	orderModeOptions,
-	energyOptions,
-	classOptions,
-	partOptions,
-	effectOptions,
-	attackOptions
-} from '@utils/classicCardsFilter'
-
+import { Box, Button, Flex } from '@chakra-ui/react'
+import options from '@utils/classicCardsFilter'
 import Select from '@components/form/Select'
 import Input from '@components/form/Input'
 
-const FilterForm = ({ onSubmit, control, ...rest }) => {
+const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
 	const id = useId()
 
+	const commonSelectProps = {
+		tagVariant: 'solid',
+		selectedOptionStyle: 'color',
+		selectedOptionColor: 'axie',
+		size: 'sm'
+	}
+
 	return (
-		<Box {...rest}>
+		<Box border='1px solid' borderRadius={12} p={2} {...rest}>
 			<form onSubmit={onSubmit} id={id}>
-				<Input
-					id={`${id}-textFilter`}
-					name='textFilter'
-					placeholder='Filter by text'
-					label='Filter'
-					control={control}
-					initialValue=''
-				/>
+				<Flex mt={4} gap={4} flexDir='row'>
+					<Input
+						id={`${id}-textFilter`}
+						name='textFilter'
+						placeholder='Filter by text'
+						label='Filter'
+						control={control}
+						initialValue=''
+						size='sm'
+						// borderRadius={12}
+					/>
 
-				<Select
-					id={`${id}-orderBy`}
-					name='orderBy'
-					label='Order by'
-					control={control}
-					options={orderOptions}
-					initialValue={orderOptions[0]}
-				/>
+					<Select
+						id={`${id}-orderBy`}
+						name='orderBy'
+						label='Order by'
+						control={control}
+						options={options.orderByOptions}
+						initialValue={options.orderByOptions[0]}
+						{...commonSelectProps}
+					/>
 
-				<Select
-					id={`${id}-orderMode`}
-					name='orderMode'
-					label='Order mode'
-					control={control}
-					options={orderModeOptions}
-					initialValue={orderModeOptions[0]}
-				/>
+					<Select
+						id={`${id}-orderMode`}
+						name='orderMode'
+						label='Order mode'
+						control={control}
+						options={options.orderModeOptions}
+						initialValue={options.orderModeOptions[0]}
+						{...commonSelectProps}
+					/>
+				</Flex>
 
-				<Select
-					id={`${id}-energyFilter`}
-					name='energyFilter'
-					label='Energy cost'
-					control={control}
-					options={energyOptions}
-					initialValue={energyOptions[0]}
-					isMulti
-					closeMenuOnSelect={false}
-				/>
+				<Flex mt={4} gap={4} flexDir='row'>
+					<Select
+						id={`${id}-energyFilter`}
+						name='energyFilter'
+						label='Energy cost'
+						control={control}
+						options={options.energyOptions}
+						initialValue={options.energyOptions[0]}
+						isMulti
+						closeMenuOnSelect={false}
+						{...commonSelectProps}
+					/>
 
-				<Select
-					id={`${id}-classFilter`}
-					name='classFilter'
-					label='Class'
-					control={control}
-					options={classOptions}
-					initialValue={classOptions[0]}
-					isMulti
-					closeMenuOnSelect={false}
-				/>
+					<Select
+						id={`${id}-classFilter`}
+						name='classFilter'
+						label='Class'
+						control={control}
+						options={options.classOptions}
+						initialValue={options.classOptions[0]}
+						isMulti
+						closeMenuOnSelect={false}
+						{...commonSelectProps}
+					/>
 
-				<Select
-					id={`${id}-partFilter`}
-					name='partFilter'
-					label='Part'
-					control={control}
-					options={partOptions}
-					initialValue={partOptions[0]}
-					isMulti
-					closeMenuOnSelect={false}
-				/>
+					<Select
+						id={`${id}-partFilter`}
+						name='partFilter'
+						label='Part'
+						control={control}
+						options={options.partOptions}
+						initialValue={options.partOptions[0]}
+						isMulti
+						closeMenuOnSelect={false}
+						{...commonSelectProps}
+					/>
+				</Flex>
 
-				<Select
-					id={`${id}-effectFilter`}
-					name='effectFilter'
-					label='Effect'
-					control={control}
-					options={effectOptions}
-					initialValue={effectOptions[0]}
-					isMulti
-					closeMenuOnSelect={false}
-				/>
+				<Flex mt={4} gap={4} flexDir='row'>
+					<Select
+						id={`${id}-effectFilter`}
+						name='effectFilter'
+						label='Effect'
+						control={control}
+						options={options.effectOptions}
+						initialValue={options.effectOptions[0]}
+						isMulti
+						closeMenuOnSelect={false}
+						{...commonSelectProps}
+					/>
 
-				<Select
-					id={`${id}-attackFilter`}
-					name='attackFilter'
-					label='Attack type'
-					control={control}
-					options={attackOptions}
-					initialValue={attackOptions[0]}
-					isMulti
-					closeMenuOnSelect={false}
-				/>
+					<Select
+						id={`${id}-attackFilter`}
+						name='attackFilter'
+						label='Attack type'
+						control={control}
+						options={options.attackOptions}
+						initialValue={options.attackOptions[0]}
+						isMulti
+						closeMenuOnSelect={false}
+						{...commonSelectProps}
+					/>
+				</Flex>
 
-				<Button type='submit' w='100%' mt={4}>
-					Apply
-				</Button>
+				<Flex mt={4} gap={4} flexDir='row'>
+					<Button colorScheme='axie' w='50%' size='sm' type='submit'>
+						Apply
+					</Button>
+					<Button
+						colorScheme='rarity-mystic'
+						w='50%'
+						size='sm'
+						type='button'
+						onClick={resetFilters}
+					>
+						Reset filters
+					</Button>
+				</Flex>
 			</form>
 		</Box>
 	)

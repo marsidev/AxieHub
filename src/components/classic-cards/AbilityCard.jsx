@@ -1,5 +1,12 @@
 import { memo } from 'react'
-import { Box, Flex, useColorModeValue, Image } from '@chakra-ui/react'
+import {
+	Box,
+	Flex,
+	useColorModeValue,
+	Image,
+	Tag,
+	TagLabel
+} from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import PartIcon from '@components/PartIcon'
 import AtkIcon from '@components/svg/AttackIcon.jsx'
@@ -7,8 +14,14 @@ import DefIcon from '@components/svg/ShieldIcon.jsx'
 
 const variants = {
 	initial: { scale: 1 },
-	tap: { scale: 0.95, transition: { duration: 0.15, ease: 'easeOut' } },
+	tap: { scale: 1, transition: { duration: 0.15, ease: 'easeOut' } },
 	hover: { scale: 1.05, transition: { duration: 0.15, ease: 'easeOut' } }
+}
+
+const expectTypeColorScheme = {
+	melee: 'orange',
+	ranged: 'teal',
+	support: 'yellow'
 }
 
 export const AbilityCard = ({ card }) => {
@@ -54,17 +67,34 @@ export const AbilityCard = ({ card }) => {
 						fontSize='.70em'
 						fontWeight='bold'
 						color={useColorModeValue('gray.700', 'gray.300')}
+						whiteSpace='nowrap'
+						// overflow='hidden'
+						// textOverflow='ellipsis'
 					>
 						{partName}
 					</Box>
 				</Flex>
+
 				<Box
 					color={useColorModeValue('gray.700', 'gray.300')}
-					textTransform='uppercase'
-					fontWeight='bold'
-					fontSize='.65em'
+					textTransform='lowercase'
+					fontWeight={400}
+					// fontSize='.60em'
 				>
-					{expectType}
+					<Tag size='sm' colorScheme={expectTypeColorScheme[expectType]}>
+						<TagLabel>{expectType}</TagLabel>
+					</Tag>
+
+					<Tag size='sm' colorScheme={partClass} ml={1}>
+						<Image
+							src={`/images/class/${partClass}.png`}
+							alt={partClass}
+							w={4}
+							h='auto'
+							mr={1}
+						/>
+						<TagLabel>{partClass}</TagLabel>
+					</Tag>
 				</Box>
 			</Box>
 
