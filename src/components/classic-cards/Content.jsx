@@ -1,4 +1,4 @@
-import { useState, memo } from 'react'
+import { useState, useEffect, memo } from 'react'
 import { Box, Container, Flex, Heading, Button } from '@chakra-ui/react'
 import AbilityCard from '@/components/classic-cards/AbilityCard'
 import { sortObjectByField } from '@utils/index'
@@ -6,13 +6,33 @@ import { queryMatch, filterMatch } from '@utils/classicCardsFilter'
 import { RiFilterLine as FilterIcon, RiFilterFill as FilterFillIcon } from 'react-icons/ri'
 import FilterForm from './FilterForm'
 import { useForm } from 'react-hook-form'
+import FloatingButton from '@components/FloattingButton'
+import { FaChevronUp as UpIcon } from 'react-icons/fa'
 
 const defaultOption = { key: 'any', label: 'Any', value: 'any' }
+
+const scrollToTop = () => {
+	window.scroll({
+		top: 0,
+		behavior: 'smooth'
+	})
+}
 
 const App = ({ cardsData }) => {
 	const [showFilterForm, setShowFilterForm] = useState(false)
 	const { control, handleSubmit, setValue, reset } = useForm()
 	const [cardsList, setCardsList] = useState(cardsData)
+	const [showButton, setShowButton] = useState(false)
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			if (window.pageYOffset > 400) {
+				setShowButton(true)
+			} else {
+				setShowButton(false)
+			}
+		})
+	}, [])
 
 	const onSubmit = data => {
 		// console.log({ data })
@@ -124,6 +144,16 @@ const App = ({ cardsData }) => {
 					))}
 				</Box>
 			</Container>
+
+			{showButton && (
+				<FloatingButton
+					ariaLabel='Scroll to top'
+					onClickHandler={scrollToTop}
+					icon={<UpIcon />}
+					top={['85%', '82%']}
+					left={['80%', '90%']}
+				/>
+			)}
 		</Box>
 	)
 }
