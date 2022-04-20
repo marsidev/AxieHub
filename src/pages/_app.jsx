@@ -19,12 +19,12 @@ import { theme } from '@lib/theme'
 // }
 
 function MyApp({ Component, pageProps }) {
-	return (
-		<ChakraProvider theme={theme}>
-			<Component {...pageProps} />
-			{/* <ToastContainer {...toastProps} /> */}
-		</ChakraProvider>
-	)
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+      {/* <ToastContainer {...toastProps} /> */}
+    </ChakraProvider>
+  )
 }
 
 export default MyApp

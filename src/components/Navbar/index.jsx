@@ -6,40 +6,40 @@ import useMobile from '@hooks/useMobile'
 import Link from '@components/Link'
 
 const Navbar = props => {
-	const isMobile = useMobile()
+  const isMobile = useMobile()
 
-	return (
-		<Box
-			as='nav'
-			bg={useColorModeValue('white', 'whiteAlpha.50')}
-			color={useColorModeValue('gray.700', 'gray.200')}
-			shadow='rgba(0, 0, 0, 0.19) 0px 4px 12px, rgba(0, 0, 0, 0.23) 0px 4px 4px'
-			{...props}
-		>
-			<Container
-				as={Stack}
-				maxW='5xl'
-				py={2}
-				// direction={{ base: 'column', md: 'row' }}
-				direction='row'
-				spacing={isMobile ? 2 : 4}
-				justify='space-between'
-				align='center'
-			>
-				<Brand />
-				<Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
-					<NavItem color='savannah'>
-						<Link href='/cards/classic'>Classic Cards</Link>
-					</NavItem>
+  return (
+    <Box
+      as='nav'
+      bg={useColorModeValue('white', 'whiteAlpha.50')}
+      color={useColorModeValue('gray.700', 'gray.200')}
+      shadow='rgba(0, 0, 0, 0.19) 0px 4px 12px, rgba(0, 0, 0, 0.23) 0px 4px 4px'
+      {...props}
+    >
+      <Container
+        as={Stack}
+        maxW='5xl'
+        py={2}
+        // direction={{ base: 'column', md: 'row' }}
+        direction='row'
+        spacing={isMobile ? 2 : 4}
+        justify='space-between'
+        align='center'
+      >
+        <Brand />
+        <Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
+          <NavItem color='savannah'>
+            <Link href='/cards/classic'>Classic Cards</Link>
+          </NavItem>
 
-					<NavItem color='origin'>
-						<Link href='/cards/origin'>Origin Cards</Link>
-					</NavItem>
-					<ThemeTogler borderRadius='full' size={isMobile ? 'sm' : 'lg'} />
-				</Stack>
-			</Container>
-		</Box>
-	)
+          <NavItem color='origin'>
+            <Link href='/cards/origin'>Origin Cards</Link>
+          </NavItem>
+          <ThemeTogler borderRadius='full' size={isMobile ? 'sm' : 'lg'} />
+        </Stack>
+      </Container>
+    </Box>
+  )
 }
 
 export default Navbar
