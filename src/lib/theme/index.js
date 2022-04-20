@@ -4,13 +4,13 @@ import fonts from '@lib/theme/fonts'
 import colors from '@lib/theme/colors'
 
 const components = {
-	Button
+  Button
 }
 
 export const theme = extendTheme({
-	initialColorMode: 'light',
-	useSystemColorMode: true,
-	components,
-	fonts,
-	colors
+  initialColorMode: 'light',
+  useSystemColorMode: true,
+  components,
+  fonts,
+  colors
 })
