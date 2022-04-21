@@ -47,7 +47,7 @@ export const AbilityCard = ({ card }) => {
 
   return (
     <MotionBox
-      // as='article'
+      as='figure'
       variants={variants}
       initial='initial'
       whileTap='tap'
