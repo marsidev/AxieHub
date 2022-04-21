@@ -32,8 +32,6 @@ const FloatingButton = props => {
     ariaLabel,
     onClickHandler,
     icon,
-    top = '80%',
-    left = '80%',
     ...rest
   } = props
 
@@ -43,8 +41,6 @@ const FloatingButton = props => {
     <MotionButton
       aria-label={ariaLabel}
       onClick={onClickHandler}
-      top={top}
-      left={left}
       icon={icon}
       variants={variants}
       initial='initial'

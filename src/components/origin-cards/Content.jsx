@@ -150,8 +150,8 @@ const App = ({ cardsData, toolsData }) => {
           ariaLabel='Scroll to top'
           onClickHandler={scrollToTop}
           icon={<UpIcon />}
-          top={['85%', '82%']}
-          left={['80%', '90%']}
+          bottom='20px'
+          right='20px'
         />
       )}
     </>
