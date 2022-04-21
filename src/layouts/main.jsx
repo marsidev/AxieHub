@@ -21,7 +21,6 @@ const HeadComponent = () => {
       <meta property='og:url' content={siteUrl} />
       <meta property='og:site_name' content={siteTitle} />
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:image' content='summary_large_image' />
       <title>{siteTitle}</title>
     </Head>
   )
