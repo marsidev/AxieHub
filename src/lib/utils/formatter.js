@@ -38,10 +38,12 @@ export const formatOriginCardsData = data => {
 
     const image = `https://www.axie.tech/images/templates/card/art/${cardId}.jpg`
 
+    const defaultStats = rest.defaultAttack + rest.defaultDefense + rest.healing
+
     const temp = {
       cardId,
       ...rest,
-      defaultStats: rest.defaultAttack + rest.defaultDefense,
+      defaultStats,
       image,
       cardImage
     }

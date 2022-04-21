@@ -1,9 +1,12 @@
 import { useState, useEffect, memo } from 'react'
 import { Box, Container, Flex, Heading, Button } from '@chakra-ui/react'
-import AbilityCard from '@/components/classic-cards/AbilityCard'
+import AbilityCard from '@/components/origin-cards/AbilityCard'
 import { sortObjectByField, filterObject, scrollToTop } from '@utils/index'
-import { queryMatch } from '@utils/classicCardsFilter'
-import { RiFilterLine as FilterIcon, RiFilterFill as FilterFillIcon } from 'react-icons/ri'
+import { queryMatch } from '@utils/originCardsFilter'
+import {
+  RiFilterLine as FilterIcon,
+  RiFilterFill as FilterFillIcon
+} from 'react-icons/ri'
 import FilterForm from './FilterForm'
 import { useForm } from 'react-hook-form'
 import FloatingButton from '@components/FloattingButton'
@@ -11,7 +14,7 @@ import { FaChevronUp as UpIcon } from 'react-icons/fa'
 
 const defaultOption = { key: 'any', label: 'Any', value: 'any' }
 
-const App = ({ cardsData }) => {
+const App = ({ cardsData, toolsData }) => {
   const { control, handleSubmit, setValue, reset } = useForm()
   const [showFilterForm, setShowFilterForm] = useState(false)
   const [showButton, setShowButton] = useState(false)
@@ -39,7 +42,7 @@ const App = ({ cardsData }) => {
     applyFilters(data)
   }
 
-  function applyFilters (filter) {
+  function applyFilters(filter) {
     const {
       textFilter,
       orderBy,
@@ -47,8 +50,7 @@ const App = ({ cardsData }) => {
       classFilter,
       energyFilter,
       partFilter,
-      attackFilter,
-      effectFilter
+      abilityFilter
     } = filter
     const temp = []
 
@@ -58,23 +60,24 @@ const App = ({ cardsData }) => {
         filterObject(classFilter, card, 'class') &&
         filterObject(energyFilter, card, 'defaultEnergy') &&
         filterObject(partFilter, card, 'type') &&
-        filterObject(attackFilter, card, 'expectType') &&
-        filterObject(effectFilter, card, 'iconId')
+        filterObject(abilityFilter, card, 'abilityType')
       ) {
         temp.push(card)
       }
     })
 
-    if (orderBy.value === 'card-name') {
-      sortObjectByField(temp, 'skillName', orderMode.value)
-    } else if (orderBy.value === 'part-name') {
-      sortObjectByField(temp, 'partName', orderMode.value)
+    if (orderBy.value === 'cardName') {
+      sortObjectByField(temp, 'cardName', orderMode.value)
+    } else if (orderBy.value === 'partName') {
+      sortObjectByField(temp, 'name', orderMode.value)
     } else if (orderBy.value === 'energy') {
       sortObjectByField(temp, 'defaultEnergy', orderMode.value)
     } else if (orderBy.value === 'damage') {
       sortObjectByField(temp, 'defaultAttack', orderMode.value)
     } else if (orderBy.value === 'shield') {
       sortObjectByField(temp, 'defaultDefense', orderMode.value)
+    } else if (orderBy.value === 'healing') {
+      sortObjectByField(temp, 'healing', orderMode.value)
     } else if (orderBy.value === 'stats') {
       sortObjectByField(temp, 'defaultStats', orderMode.value)
     } else if (orderBy.value === 'class') {
@@ -99,7 +102,7 @@ const App = ({ cardsData }) => {
     <Box w='100%' as='section'>
       <Container maxW='5xl' direction='column'>
         <Heading textAlign='left' as='h1' size='lg' mb={2}>
-          Cards Explorer - Classic
+          Cards Explorer - Origin
         </Heading>
 
         <Flex flexDir='row' justify='flex-start' align='center' py={2}>
@@ -134,7 +137,7 @@ const App = ({ cardsData }) => {
           ]}
         >
           {cardsList.map(item => (
-            <AbilityCard key={item.id} card={item} />
+            <AbilityCard key={item.partId} card={item} toolsData={toolsData} />
           ))}
         </Box>
       </Container>

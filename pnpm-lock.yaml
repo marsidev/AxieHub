@@ -21,6 +21,7 @@ specifiers:
   react-dom: ^18.0.0
   react-hook-form: ^7.29.0
   react-icons: ^4.3.1
+  react-tooltip: ^4.2.21
   zustand: ^3.7.2
 
 dependencies:
@@ -40,6 +41,7 @@ dependencies:
   react-dom: 18.0.0_react@18.0.0
   react-hook-form: 7.29.0_react@18.0.0
   react-icons: 4.3.1_react@18.0.0
+  react-tooltip: 4.2.21_react-dom@18.0.0+react@18.0.0
   zustand: 3.7.2_react@18.0.0
 
 devDependencies:
@@ -2567,6 +2569,19 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /react-tooltip/4.2.21_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-zSLprMymBDowknr0KVDiJ05IjZn9mQhhg4PRsqln0OZtURAJ1snt1xi5daZfagsh6vfsziZrc9pErPTDY1ACig==}
+    engines: {npm: '>=6.13'}
+    peerDependencies:
+      react: '>=16.0.0 || 18'
+      react-dom: '>=16.0.0 || 18'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
+      uuid: 7.0.3
+    dev: false
+
   /react-transition-group/4.4.2_react-dom@18.0.0+react@18.0.0:
     resolution: {integrity: sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==}
     peerDependencies:
@@ -2848,6 +2863,11 @@ packages:
       detect-node-es: 1.1.0
       react: 18.0.0
       tslib: 1.14.1
+    dev: false
+
+  /uuid/7.0.3:
+    resolution: {integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==}
+    hasBin: true
     dev: false
 
   /v8-compile-cache/2.3.0:

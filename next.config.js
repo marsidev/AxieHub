@@ -11,7 +11,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/cards/classic',
+        destination: '/cards/origin',
         permanent: true
       }
     ]

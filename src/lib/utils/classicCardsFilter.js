@@ -13,15 +13,10 @@ export const queryMatch = (textFilter, card) => {
   }
 }
 
-export const filterMatch = (filter, card, propName) => {
-  const values = filter.map(v => v.value)
-  if (values.includes(card[propName]) || values.includes('any')) {
-    return true
-  }
-}
-
 export const patchOptions = [
   { key: 'current', label: 'Current Patch', value: 'current' },
+  { key: 's21', label: 'Season 21 Patch', value: 's21' },
+  { key: 's20', label: 'Season 20 Patch', value: 's20' },
   { key: 's19', label: 'Season 19 Patch', value: 's19' },
   { key: 's18', label: 'Season 18 Patch', value: 's18' }
 ]
@@ -60,9 +55,9 @@ export const classOptions = [
 
 export const partOptions = [
   { label: 'Any', value: 'any' },
-  { label: 'Mouth', value: 'mouth' },
-  { label: 'Horn', value: 'horn' },
   { label: 'Back', value: 'back' },
+  { label: 'Horn', value: 'horn' },
+  { label: 'Mouth', value: 'mouth' },
   { label: 'Tail', value: 'tail' }
 ]
 

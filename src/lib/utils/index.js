@@ -29,3 +29,17 @@ export const filterObjectArray = (data, filter) => {
 
   return filteredData
 }
+
+export const filterObject = (filter, obj, propName) => {
+  const values = filter.map(v => v.value)
+  if (values.includes(obj[propName]) || values.includes('any')) {
+    return true
+  }
+}
+
+export const scrollToTop = () => {
+  window.scroll({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
