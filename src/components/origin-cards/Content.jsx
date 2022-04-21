@@ -99,25 +99,27 @@ const App = ({ cardsData, toolsData }) => {
   }
 
   return (
-    <Box w='100%' as='section'>
+    <>
       <Container maxW='5xl' direction='column'>
-        <Heading textAlign='left' as='h1' size='lg' mb={2}>
-          Cards Explorer - Origin
-        </Heading>
+        <section>
+          <Heading textAlign='left' as='h1' size='lg' mb={2}>
+            Cards Explorer - Origin
+          </Heading>
 
-        <Flex flexDir='row' justify='flex-start' align='center' py={2}>
-          <Button
-            onClick={toggleFilterForm}
-            leftIcon={showFilterForm ? <FilterIcon /> : <FilterFillIcon />}
-            aria-label='toggle filter form'
-            size='sm'
-            variant='ghost'
-            cursor='pointer'
-            colorScheme='savannah'
-          >
-            toggle filters
-          </Button>
-        </Flex>
+          <Flex flexDir='row' justify='flex-start' align='center' py={2}>
+            <Button
+              onClick={toggleFilterForm}
+              leftIcon={showFilterForm ? <FilterIcon /> : <FilterFillIcon />}
+              aria-label='toggle filter form'
+              size='sm'
+              variant='ghost'
+              cursor='pointer'
+              colorScheme='savannah'
+            >
+              toggle filters
+            </Button>
+          </Flex>
+        </section>
 
         <FilterForm
           onSubmit={handleSubmit(onSubmit)}
@@ -127,6 +129,7 @@ const App = ({ cardsData, toolsData }) => {
         />
 
         <Box
+          as='section'
           className='cardlist-container'
           gridTemplateColumns={[
             'repeat(auto-fill, 160px)',
@@ -151,7 +154,7 @@ const App = ({ cardsData, toolsData }) => {
           left={['80%', '90%']}
         />
       )}
-    </Box>
+    </>
   )
 }
 

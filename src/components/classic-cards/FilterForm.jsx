@@ -16,7 +16,7 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
   }
 
   return (
-    <Box border='1px solid' borderRadius={12} p={2} {...rest}>
+    <Box as='section' border='1px solid' borderRadius={12} p={2} {...rest}>
       <form onSubmit={onSubmit} id={id}>
         <Flex mt={4} gap={4} flexDir={['column', 'row']}>
           <Input
