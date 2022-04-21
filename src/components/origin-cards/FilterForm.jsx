@@ -97,19 +97,6 @@ const FilterForm = ({ onSubmit, control, resetFilters, ...rest }) => {
           />
         </Flex>
 
-        {/* <Flex mt={4} gap={4} flexDir={['column', 'row']}>
-          <Select
-            id={`${id}-abilityFilter`}
-            name='abilityFilter'
-            label='Ability type'
-            control={control}
-            options={options.abilityOptions}
-            initialValue={options.abilityOptions[0]}
-            isMulti
-            {...commonSelectProps}
-          />
-        </Flex> */}
-
         <Flex mt={4} gap={4} flexDir={['column', 'row']}>
           <Button
             colorScheme='axie'
