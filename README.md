@@ -1,6 +1,6 @@
 <div align="center">
 
-  # <img src="https://res.cloudinary.com/marsiglia/image/upload/v1650593268/axie-infinity/axie-hub-assets/logo.png" height="30px"/> [AxieHub](https://axiehub.vercel.app)
+  # <img src="https://res.cloudinary.com/marsiglia/image/upload/v1650602883/axie-infinity/axie-hub-assets/logo256_w0eoaw.png" height="30px"/> [AxieHub](https://axiehub.vercel.app)
 </div>
 
 <!-- TABLE OF CONTENTS -->
