@@ -22,7 +22,6 @@ specifiers:
   react-hook-form: ^7.29.0
   react-icons: ^4.3.1
   react-tooltip: ^4.2.21
-  zustand: ^3.7.2
 
 dependencies:
   '@chakra-ui/react': 2.0.0-next.1_634d89c91765313e9a678b616bbb206c
@@ -42,7 +41,6 @@ dependencies:
   react-hook-form: 7.29.0_react@18.0.0
   react-icons: 4.3.1_react@18.0.0
   react-tooltip: 4.2.21_react-dom@18.0.0+react@18.0.0
-  zustand: 3.7.2_react@18.0.0
 
 devDependencies:
   eslint: 8.13.0
@@ -2846,7 +2844,7 @@ packages:
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0
-      react: ^16.8.0 || ^17.0.0 || 18 || 18
+      react: ^16.8.0 || ^17.0.0 || 18
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -2858,7 +2856,7 @@ packages:
     resolution: {integrity: sha512-k9jnrjYNwN6xYLj1iaGhonDghfvmeTmYjAiGvOr7clwKfPjMXJf4/HOr7oT5tJwYafgp2tG2l3eZEOfoELiMcA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || 18 || 18
+      react: ^16.8.0 || ^17.0.0 || 18
     dependencies:
       detect-node-es: 1.1.0
       react: 18.0.0
@@ -2904,16 +2902,4 @@ packages:
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
-    dev: false
-
-  /zustand/3.7.2_react@18.0.0:
-    resolution: {integrity: sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      react: '>=16.8 || 18'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.0.0
     dev: false
