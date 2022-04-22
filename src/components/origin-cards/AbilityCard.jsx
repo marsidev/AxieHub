@@ -19,11 +19,8 @@ const variants = {
 const formatInfo = ({ info, parentId, toolsData }) => {
   const result = []
   const infoCodes = getCodesFromText(info)
-
-  // replace spaces from infoCodes with underscores
   const infoCodes2 = infoCodes.map(code => code.replace(' ', '_'))
 
-  // replace original codes with new ones in info
   let info2 = info
   infoCodes.forEach((code, i) => {
     info2 = info2.replace(code, infoCodes2[i])
@@ -33,9 +30,7 @@ const formatInfo = ({ info, parentId, toolsData }) => {
 
   words.forEach(w => {
     if (hasCode(w)) {
-      // replace underscores with spaces
       const _w = w.replace('_', ' ')
-
       const codes = getCodesFromText(_w)
 
       const code = codes[0]
@@ -131,11 +126,12 @@ export const AbilityCard = ({ card, toolsData }) => {
             w='90%'
             top={['72.5%', '64%', '66%', '67%', '68%']}
             left={['17px', '17px', '17.5px', '18px', '18.5px']}
-            px={1.5}
+            px={2}
+            // px='0.55rem'
             fontSize={[10, 10.5, 11, 11.5, 12]}
             lineHeight={['9px', '9.5px', '10px', '11px', '12px']}
             color='#dbdbdb'
-            // border='1px solid'
+            border='1px solid'
           >
             <Description
               descriptionText={description}
