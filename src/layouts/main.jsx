@@ -2,7 +2,14 @@ import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
 import Navbar from '@components/Navbar/index'
 import Footer from '@components/Footer'
-import { siteTitle, siteUrl, siteDescription, siteKeywords, ogImageUrl } from '@lib/config'
+import {
+  siteTitle,
+  siteUrl,
+  siteDescription,
+  siteKeywords,
+  ogImageUrl,
+  ogTwitterImageUrl
+} from '@lib/config'
 
 const HeadComponent = () => {
   return (
@@ -21,7 +28,7 @@ const HeadComponent = () => {
       <meta name='twitter:title' content={siteTitle} />
       <meta name='twitter:description' content={siteDescription} />
       <meta name='twitter:creator' content='@marsigliaCR' />
-      <meta name='twitter:image' content={ogImageUrl} />
+      <meta name='twitter:image' content={ogTwitterImageUrl} />
     </Head>
   )
 }
