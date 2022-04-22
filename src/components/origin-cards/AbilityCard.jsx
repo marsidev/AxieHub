@@ -33,39 +33,53 @@ const getCodesFromText = text => {
   ]
 }
 
-const formatInfo = ({ info, parentId, toolsData }) => {
-  // info (example): 'If <Initial>, apply [Sleep] for 4 turns.'
-  const codes = getCodesFromText(info)
-  // codes: ['{Initial}', '{Sleep}']
-
+const formatInfo2 = ({ info, parentId, toolsData }) => {
   const result = []
-  let tempInfo = info
-  codes.forEach(code => {
-    const start = tempInfo.indexOf(code)
-    const end = start + code.length
-    const before = tempInfo.slice(0, start)
+  const infoCodes = getCodesFromText(info)
 
-    if (before) result.push(before)
+  // replace spaces from infoCodes with underscores
+  const infoCodes2 = infoCodes.map(code => code.replace(' ', '_'))
 
-    const _code = code.slice(1, -1)
-    const keyCode = code.toLowerCase().replace(/[^a-z0-9]/g, '')
-    const toolType = toolTypes[code[0]]
-
-    const id = useId(`${parentId}_${keyCode}`)
-    result.push(
-      <span key={id} data-tip={true} data-for={id} className='card_tool_item'>
-        {_code}
-        <ReactTooltip id={id} clickable={true}>
-          <ToolCard toolsData={toolsData} id={_code} type={toolType} />
-        </ReactTooltip>
-      </span>
-    )
-
-    const after = tempInfo.slice(end)
-    tempInfo = after
+  // replace original codes with new ones in info
+  let info2 = info
+  infoCodes.forEach((code, i) => {
+    info2 = info2.replace(code, infoCodes2[i])
   })
 
-  if (tempInfo) result.push(tempInfo)
+  const words = info2.split(' ')
+
+  words.forEach(w => {
+    if (hasCode(w)) {
+      // replace underscores with spaces
+      const _w = w.replace('_', ' ')
+
+      const codes = getCodesFromText(_w)
+
+      const code = codes[0]
+      const _code = code.slice(1, -1)
+      const keyCode = code.toLowerCase().replace(/[^a-z0-9]/g, '')
+      const toolType = toolTypes[w[0]]
+
+      const id = useId(`${parentId}_${keyCode}`)
+
+      result.push(
+        <span key={id} data-tip={true} data-for={id} className='card_tool_item'>
+          {_code}
+          <ReactTooltip id={id} clickable={true}>
+            <ToolCard toolsData={toolsData} id={_code} type={toolType} />
+          </ReactTooltip>
+        </span>
+      )
+
+      if (w.length > code.length) {
+        result.push(w.slice(code.length).concat(' '))
+      } else {
+        result.push(' ')
+      }
+    } else {
+      result.push(w.concat(' '))
+    }
+  })
 
   return result
 }
@@ -73,7 +87,7 @@ const formatInfo = ({ info, parentId, toolsData }) => {
 const Description = ({ descriptionText, tooltipId, toolsData }) => {
   const showTooltip = hasCode(descriptionText)
 
-  const html = formatInfo({
+  const html = formatInfo2({
     info: descriptionText,
     parentId: tooltipId,
     toolsData

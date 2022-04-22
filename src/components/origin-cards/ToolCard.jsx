@@ -1,6 +1,6 @@
 
 import { memo } from 'react'
-import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import { Box, Flex, Image } from '@chakra-ui/react'
 import ToolInfo from './ToolInfo'
 
 export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
