@@ -41,7 +41,14 @@ const formatInfo = ({ info, parentId, toolsData }) => {
       const id = useId(`${parentId}_${keyCode}`)
 
       result.push(
-        <span key={id} data-tip={true} data-for={id} className='card_tool_item'>
+        <span
+          key={id}
+          data-tip={true}
+          data-for={id}
+          effect='float'
+          type='info'
+          className='card_tool_item'
+        >
           {_code}
           <ReactTooltip id={id} clickable={true}>
             <ToolCard toolsData={toolsData} id={_code} type={toolType} />
@@ -91,6 +98,7 @@ export const AbilityCard = ({ card, toolsData }) => {
       whileHover='hover'
       pos='relative'
       transition='all .2s ease-in-out'
+      zIndex={1}
     >
       <Flex justify='center' p={0}>
         <Box
@@ -126,7 +134,7 @@ export const AbilityCard = ({ card, toolsData }) => {
             w='90%'
             top={['72.5%', '64%', '66%', '67%', '68%']}
             left={['17px', '17px', '17.5px', '18px', '18.5px']}
-            px={2}
+            px={3}
             // px='0.55rem'
             fontSize={[10, 10.5, 11, 11.5, 12]}
             lineHeight={['9px', '9.5px', '10px', '11px', '12px']}

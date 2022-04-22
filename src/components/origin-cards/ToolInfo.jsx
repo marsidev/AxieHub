@@ -29,6 +29,7 @@ const ToolCard = ({ id, description }) => {
       fontWeight={500}
       fontSize={[11, 12]}
       color='white'
+      zIndex={10}
     >
       <Text dangerouslySetInnerHTML={{ __html: formatData(id, description) }} />
     </Flex>

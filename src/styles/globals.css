@@ -49,4 +49,6 @@ body {
   border-radius: 12px !important;
   padding: 0px !important;
   border-width: 0 !important;
+  background: transparent !important;
+  opacity: 1 !important;
 }

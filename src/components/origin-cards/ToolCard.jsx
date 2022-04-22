@@ -1,7 +1,23 @@
 
 import { memo } from 'react'
-import { Box, Flex, Image } from '@chakra-ui/react'
+import { Box, chakra, Flex, Image } from '@chakra-ui/react'
 import ToolInfo from './ToolInfo'
+import { getCodesFromText } from '@utils/originParser'
+
+const formatData = (id, info) => {
+  const infoCodes = getCodesFromText(info)
+  let newInfo = info
+
+  infoCodes.forEach(code => {
+    const _code = code.slice(1, -1)
+    newInfo = newInfo.replace(
+      code,
+      `<span class="card_tool_item">${_code}</span>`
+    )
+  })
+
+  return newInfo
+}
 
 export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   let data
@@ -23,7 +39,7 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   const localCardImage = `/images/origin/tool-cards/${cardImage.replace('https://cdn.axieinfinity.com/game/origin-cards/base/', '')}`
 
   return (
-    <Flex justify='center' p={0}>
+    <Flex justify='center' p={0} zIndex={10}>
       <Box
         pos='relative'
         w='170px'
@@ -39,12 +55,11 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
           src={localCardImage}
           w='100%'
           h='auto'
-          display='block'
         />
 
         <Box
           pos='absolute'
-          top={['57.5%', '49%', '51%', '52%', '53%']}
+          top={['57.5%', '50%', '56%', '57%', '58%']}
           left={['39%', '38%']}
           fontWeight={500}
           fontSize={[11, 12]}
@@ -65,7 +80,10 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
           color='#dbdbdb'
           // border='1px solid'
         >
-          <span>{description}</span>
+          {/* <span>{description}</span> */}
+          <chakra.span
+            dangerouslySetInnerHTML={{ __html: formatData(id, description) }}
+          />
         </Box>
       </Box>
     </Flex>
