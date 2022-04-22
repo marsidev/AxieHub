@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
 import Navbar from '@components/Navbar/index'
 import Footer from '@components/Footer'
-import { siteTitle, siteUrl, siteDescription } from '@lib/config'
+import { siteTitle, siteUrl, siteDescription, siteKeywords } from '@lib/config'
 import createOgImage from '@utils/createOgImage'
 
 const HeadComponent = () => {
@@ -15,13 +15,20 @@ const HeadComponent = () => {
   return (
     <Head>
       <link rel='icon' href='/favicon.ico' />
+      <title>{siteTitle}</title>
       <meta name='description' content={siteDescription} />
+      <meta name='keywords' content={siteKeywords} />
+      <meta property='og:type' content='website' />
       <meta property='og:image' content={ogImageUrl} />
       <meta name='og:title' content={siteTitle} />
+      <meta name='og:description' content={siteDescription} />
       <meta property='og:url' content={siteUrl} />
       <meta property='og:site_name' content={siteTitle} />
       <meta name='twitter:card' content='summary_large_image' />
-      <title>{siteTitle}</title>
+      <meta name='twitter:title' content={siteTitle} />
+      <meta name='twitter:description' content={siteDescription} />
+      <meta name='twitter:creator' content='@marsigliaCR' />
+      <meta name='twitter:image' content={ogImageUrl} />
     </Head>
   )
 }
