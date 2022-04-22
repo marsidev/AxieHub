@@ -1,6 +1,19 @@
 
 import { memo } from 'react'
 import { Flex, Text } from '@chakra-ui/react'
+import { getCodesFromText } from '@utils/originParser'
+
+const formatData = (id, info) => {
+  const infoCodes = getCodesFromText(info)
+  let newInfo = info
+
+  infoCodes.forEach(code => {
+    const _code = code.slice(1, -1)
+    newInfo = newInfo.replace(code, `<span class="card_tool_item">${_code}</span>`)
+  })
+
+  return `<span class="card_tool_item">${id}:</span> ${newInfo}`
+}
 
 const ToolCard = ({ id, description }) => {
   return (
@@ -17,9 +30,7 @@ const ToolCard = ({ id, description }) => {
       fontSize={[11, 12]}
       color='white'
     >
-      <Text>
-        <span className='card_tool_item'>{id}:</span> {description}
-      </Text>
+      <Text dangerouslySetInnerHTML={{ __html: formatData(id, description) }} />
     </Flex>
   )
 }

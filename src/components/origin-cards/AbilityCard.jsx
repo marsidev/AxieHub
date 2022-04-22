@@ -1,9 +1,10 @@
-/* eslint-disable no-useless-escape */
+
 import { memo, useId } from 'react'
 import dynamic from 'next/dynamic'
 import { Box, Flex, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ToolCard from './ToolCard'
+import { toolTypes, hasCode, getCodesFromText } from '@utils/originParser'
 
 const ReactTooltip = dynamic(() => import('react-tooltip'), {
   ssr: false
@@ -15,25 +16,7 @@ const variants = {
   hover: { scale: 1.05, transition: { duration: 0.15, ease: 'easeOut' } }
 }
 
-const toolTypes = {
-  '{': 'status',
-  '[': 'ability',
-  '<': 'tool'
-}
-
-const hasCode = text => {
-  return text.includes('{') || text.includes('[') || text.includes('<')
-}
-
-const getCodesFromText = text => {
-  return [
-    ...(text.match(/\{(.*?)\}/g) || []),
-    ...(text.match(/\[(.*?)\]/g) || []),
-    ...(text.match(/\<(.*?)\>/g) || [])
-  ]
-}
-
-const formatInfo2 = ({ info, parentId, toolsData }) => {
+const formatInfo = ({ info, parentId, toolsData }) => {
   const result = []
   const infoCodes = getCodesFromText(info)
 
@@ -87,7 +70,7 @@ const formatInfo2 = ({ info, parentId, toolsData }) => {
 const Description = ({ descriptionText, tooltipId, toolsData }) => {
   const showTooltip = hasCode(descriptionText)
 
-  const html = formatInfo2({
+  const html = formatInfo({
     info: descriptionText,
     parentId: tooltipId,
     toolsData
