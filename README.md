@@ -1,6 +1,6 @@
 <div align="center">
 
-  # <img src="https://raw.githubusercontent.com/marsigliadev/axiehub/main/public/favicon.ico" height="30px"/> [AxieHub](https://axiehub.vercel.app)
+  # <img src="https://res.cloudinary.com/marsiglia/image/upload/v1650593268/axie-infinity/axie-hub-assets/logo.png" height="30px"/> [AxieHub](https://axiehub.vercel.app)
 </div>
 
 <!-- TABLE OF CONTENTS -->
