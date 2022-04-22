@@ -2,16 +2,9 @@ import Head from 'next/head'
 import { Flex } from '@chakra-ui/react'
 import Navbar from '@components/Navbar/index'
 import Footer from '@components/Footer'
-import { siteTitle, siteUrl, siteDescription, siteKeywords } from '@lib/config'
-import createOgImage from '@utils/createOgImage'
+import { siteTitle, siteUrl, siteDescription, siteKeywords, ogImageUrl } from '@lib/config'
 
 const HeadComponent = () => {
-  const ogImageUrl = createOgImage({
-    title: siteTitle,
-    description: siteDescription,
-    url: siteUrl
-  })
-
   return (
     <Head>
       <link rel='icon' href='/favicon.ico' />
