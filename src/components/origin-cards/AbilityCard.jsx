@@ -131,7 +131,7 @@ export const AbilityCard = ({ card, toolsData }) => {
             fontSize={[10, 10.5, 11, 11.5, 12]}
             lineHeight={['9px', '9.5px', '10px', '11px', '12px']}
             color='#dbdbdb'
-            border='1px solid'
+            // border='1px solid'
           >
             <Description
               descriptionText={description}
