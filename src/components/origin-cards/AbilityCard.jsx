@@ -45,12 +45,11 @@ const formatInfo = ({ info, parentId, toolsData }) => {
           key={id}
           data-tip={true}
           data-for={id}
-          effect='float'
-          type='info'
+          clickable={true}
           className='card_tool_item'
         >
           {_code}
-          <ReactTooltip id={id} clickable={true}>
+          <ReactTooltip id={id}>
             <ToolCard toolsData={toolsData} id={_code} type={toolType} />
           </ReactTooltip>
         </span>
@@ -83,7 +82,12 @@ const Description = ({ descriptionText, tooltipId, toolsData }) => {
 }
 
 export const AbilityCard = ({ card, toolsData }) => {
-  const { cardName, cardId, description } = card
+  const {
+    cardName,
+    cardId,
+    description
+    // cardImage
+  } = card
 
   const tooltipId = `tooltip_${cardId}`
 
@@ -115,7 +119,23 @@ export const AbilityCard = ({ card, toolsData }) => {
             w='100%'
             h='auto'
             display='block'
+            // fallback={`/images/origin/cards/${cardId}.png`}
+            zIndex={1}
+            // pos='absolute'
           />
+
+          {/* <Box
+            pos='absolute'
+            top={['10%', '27px']}
+            left={['10.5%', '19px']}
+            bg='#2b2c2a'
+            borderRadius={20}
+            maxW='200px'
+            minW='140px'
+            w={['89.5%', '161px']}
+            h={['90%', '250px']}
+            zIndex={-1}
+          /> */}
 
           <Box
             pos='absolute'
@@ -124,6 +144,7 @@ export const AbilityCard = ({ card, toolsData }) => {
             fontWeight={500}
             fontSize={[11, 12]}
             fontFamily='Changa One, sans-serif'
+            zIndex={1}
           >
             {cardName}
           </Box>
@@ -135,10 +156,10 @@ export const AbilityCard = ({ card, toolsData }) => {
             top={['72.5%', '64%', '66%', '67%', '68%']}
             left={['17px', '17px', '17.5px', '18px', '18.5px']}
             px={3}
-            // px='0.55rem'
             fontSize={[10, 10.5, 11, 11.5, 12]}
             lineHeight={['9px', '9.5px', '10px', '11px', '12px']}
             color='#dbdbdb'
+            zIndex={1}
             // border='1px solid'
           >
             <Description
