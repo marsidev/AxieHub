@@ -41,15 +41,12 @@ const formatInfo = ({ info, parentId, toolsData }) => {
       const id = useId(`${parentId}_${keyCode}`)
 
       result.push(
-        <span
-          key={id}
-          data-tip={true}
-          data-for={id}
-          clickable={true}
-          className='card_tool_item'
-        >
+        <span key={id} data-tip={true} data-for={id} className='card_tool_item'>
           {_code}
-          <ReactTooltip id={id}>
+          <ReactTooltip
+            id={id}
+            clickable={true}
+          >
             <ToolCard toolsData={toolsData} id={_code} type={toolType} />
           </ReactTooltip>
         </span>
