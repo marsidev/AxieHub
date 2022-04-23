@@ -7,11 +7,11 @@
 		"dev": "(if exist .next rd /s /q .next 2>nul) && next dev -p 5900",
 		"build": "next build",
 		"start": "next start -p $PORT",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
+		"lint": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx",
+		"lint:fix": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "^2.0.0-next.1",
+		"@chakra-ui/react": "^2.0.0-next.2",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
 		"@fontsource/changa-one": "^4.5.6",
