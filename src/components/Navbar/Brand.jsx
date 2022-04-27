@@ -1,21 +1,10 @@
 import { Flex, Text } from '@chakra-ui/react'
 import Link from '@components/Link'
 
-const Brand = props => {
+const Brand = () => {
   return (
-    <Flex
-      {...props}
-      align='center'
-      textAlign='center'
-      justify='center'
-      ml={2}
-    >
-      <Link href='/'>
-        {/* <Image
-          boxSize='40px'
-          src={'/favicon.ico'}
-          float='left'
-        /> */}
+    <Flex align='center'>
+      <Link href='/' aria-label='Axie Hub, Back to homepage'>
         <Text fontSize={['md', 'lg']}>
           Axie<strong>Hub</strong>
         </Text>
