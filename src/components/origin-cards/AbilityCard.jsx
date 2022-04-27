@@ -5,6 +5,7 @@ import { Box, Flex, Image } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ToolCard from './ToolCard'
 import { toolTypes, hasCode, getCodesFromText } from '@utils/originParser'
+// import NextImage from '@components/Image'
 
 const ReactTooltip = dynamic(() => import('react-tooltip'), {
   ssr: false
@@ -112,11 +113,23 @@ export const AbilityCard = ({ card, toolsData }) => {
           <Image
             // src={cardImage}
             src={`/images/origin/cards/${cardId}.png`}
+            alt={`${cardName} - Axie Infinity: Origin Card`}
             w='100%'
             h='auto'
             display='block'
-            // fallback={`/images/origin/cards/${cardId}.png`}
+            // fallbackSrc='/images/origin/assets/frame.png'
           />
+
+          {/* <NextImage
+            src={cardImage}
+            // src={`/images/origin/cards/${cardId}.png`}
+            alt={`${cardName} - Axie Infinity: Origin Card`}
+            width={228}
+            height={353}
+            blurring={true}
+            loading='lazy'
+            fallBackSrc='/images/origin/assets/frame.png'
+          /> */}
 
           <Box
             pos='absolute'
