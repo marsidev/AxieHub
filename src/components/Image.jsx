@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import NextImage from 'next/image'
-import { Box, chakra } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { toBase64 } from '@utils/index'
 
 const shimmer = (w, h) => {
@@ -19,35 +20,9 @@ const shimmer = (w, h) => {
   return svg
 }
 
-const CoverImg = chakra(NextImage, {
-  shouldForwardProp: prop => ['width', 'height', 'src', 'alt', 'quality', 'placeholder', 'blurDataURL', 'loader', 'data-image-id', 'lazyRoot'].includes(prop)
-})
-
-const LayoutImg = chakra(NextImage, {
-  shouldForwardProp: prop => ['src', 'alt', 'quality', 'placeholder', 'blurDataURL', 'loader', 'data-image-id', 'objectFit', 'layout', 'lazyRoot'].includes(prop)
-})
-
-// Responsive is useful when using a porcentual width
-const ResponsiveImg = chakra(NextImage, {
-  shouldForwardProp: prop => ['width', 'height', 'src', 'alt', 'quality', 'placeholder', 'blurDataURL', 'loader', 'data-image-id', 'objectFit', 'layout', 'lazyRoot'].includes(prop)
-})
-
-const DynamicImg = props => {
-  const { layout, width } = props
-  if (layout === 'responsive' && width.includes('%')) {
-    return <ResponsiveImg {...props}/>
-  }
-
-  if (width > 0) {
-    return <CoverImg {...props}/>
-  }
-
-  return <LayoutImg {...props}/>
-}
-
 const myLoader = ({ src, width, quality }) => `${src}?w=${width}&q=${quality}`
 
-function Image(props) {
+const Image = props => {
   const {
     src,
     alt,
@@ -60,29 +35,35 @@ function Image(props) {
     dataId,
     layout = null,
     lazyRoot = null,
+    fallBackSrc = '',
     ...rest
   } = props
 
+  const [imageError, setImageError] = useState(false)
+
+  const onError = () => {
+    console.log('error loading image')
+    setImageError(true)
+  }
+
+  const blurDataURL = `data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`
+
   return (
-    <Box
-      transition={transition}
-      pos='relative'
-      {...rest}
-    >
-      <DynamicImg
-        data-image-id={dataId}
+    <Box transition={transition} pos='relative' {...rest}>
+      <NextImage
         loader={myLoader}
         width={width}
         height={height}
-        quality={70}
+        quality={50}
         placeholder={blurring ? 'blur' : 'auto'}
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`}
-        src={src}
+        blurDataURL={blurDataURL}
+        src={imageError ? fallBackSrc : src}
         alt={alt}
         loading={loading}
         layout={layout}
         objectFit={objectFit}
         lazyRoot={lazyRoot}
+        onError={onError}
       />
     </Box>
   )
