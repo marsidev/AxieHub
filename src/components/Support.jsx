@@ -65,9 +65,6 @@ const Label = ({ id, label, value, isLink = false }) => {
           borderRightRadius={8}
           borderLeftRadius={0}
           bg={hasCopied ? colors.onCopied : 'inherit'}
-          _focus={hasCopied ? colors.onCopied : 'inherit'}
-          _hover={hasCopied ? colors.onCopied : 'inherit'}
-          _active={hasCopied ? colors.onCopied : 'inherit'}
         >
           <IconButton
             variant='ghost'
