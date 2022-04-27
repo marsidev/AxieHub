@@ -92,6 +92,7 @@ const App = ({ cardsData, toolsData }) => {
   const resetFilters = () => {
     reset()
     setCardsList(cardsData)
+    setShowFilterForm(false)
   }
 
   const toggleFilterForm = () => {
