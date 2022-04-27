@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { Box, Flex, HStack, IconButton, useColorModeValue, useDisclosure } from '@chakra-ui/react'
 import ThemeTogler from '@components/Navbar/ThemeTogler'
 import NavItem from '@components/Navbar/NavItem'
@@ -65,4 +65,4 @@ const Navbar = props => {
   )
 }
 
-export default Navbar
+export default memo(Navbar)
