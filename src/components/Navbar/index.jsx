@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Flex, HStack, IconButton, Show, useColorModeValue, useDisclosure } from '@chakra-ui/react'
+import { Box, Flex, HStack, IconButton, useColorModeValue, useDisclosure } from '@chakra-ui/react'
 import ThemeTogler from '@components/Navbar/ThemeTogler'
 import NavItem from '@components/Navbar/NavItem'
 import SidebarNav from '@components/Navbar/SidebarNav'
@@ -32,35 +32,33 @@ const Navbar = props => {
       width='100%'
       {...props}
     >
-      <Box h='full' mx='auto' maxW='8xl'>
+      <Flex minH='10vh' h='full' mx='auto' maxW='5xl' align='center'>
         <Flex justify='space-between' align='center' w='100%' h='100%' px={6}>
           <Brand />
 
           <Flex align='center' justify='flex-end' w='100%' maxW='1100px'>
-            <HStack align='center'>
-              <Show above='md'>
-                <NavItem color='savannah'>
-                  <Link href='/cards/classic'>Classic Cards</Link>
-                </NavItem>
+            <HStack align='center' display={{ base: 'none', md: 'block' }}>
+              <NavItem color='savannah'>
+                <Link href='/cards/classic'>Classic Cards</Link>
+              </NavItem>
 
-                <NavItem color='origin'>
-                  <Link href='/cards/origin'>Origin Cards</Link>
-                </NavItem>
-              </Show>
+              <NavItem color='origin'>
+                <Link href='/cards/origin'>Origin Cards</Link>
+              </NavItem>
             </HStack>
 
             <HStack align='center'>
               <ThemeTogler />
 
-              <Show below='md'>
-                <IconButton variant='ghost' ml={5} onClick={onOpen}>
+              <Box ml={5} display={{ base: 'block', md: 'none' }}>
+                <IconButton variant='ghost' onClick={onOpen}>
                   <BarsIcon />
                 </IconButton>
-              </Show>
+              </Box>
             </HStack>
           </Flex>
         </Flex>
-      </Box>
+      </Flex>
 
       <SidebarNav isOpen={isOpen} onClose={onClose} />
     </Box>
