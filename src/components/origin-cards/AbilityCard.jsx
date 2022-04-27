@@ -111,8 +111,7 @@ export const AbilityCard = ({ card, toolsData }) => {
           color='white'
         >
           <Image
-            // src={cardImage}
-            src={`/images/origin/cards/${cardId}.png`}
+            src={`/images/origin/cards/${cardId}.webp`}
             alt={`${cardName} - Axie Infinity: Origin Card`}
             w='100%'
             h='auto'
