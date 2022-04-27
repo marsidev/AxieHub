@@ -74,15 +74,18 @@ export const formatOriginToolsData = data => {
 
       const { ability_type: abilityType, ...restOfData } = data
 
-      const cardImage = `${AXIE_ORIGIN_CARDS_BASE_URL}/tool-${restOfData.code.toLowerCase()}-02.png`
+      const imageId = `tool-${restOfData.code.toLowerCase()}-02`
 
-      const image = `https://www.axie.tech/images/templates/card/art/tool-${restOfData.code.toLowerCase()}-02.jpg`
+      const cardImage = `${AXIE_ORIGIN_CARDS_BASE_URL}/${imageId}.png`
+
+      const image = `https://www.axie.tech/images/templates/card/art/${imageId}.jpg`
 
       return {
         ...rest,
         data: {
           ...restOfData,
           abilityType,
+          imageId,
           image,
           cardImage
         }
