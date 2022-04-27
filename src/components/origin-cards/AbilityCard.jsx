@@ -99,7 +99,6 @@ export const AbilityCard = ({ card, toolsData }) => {
       whileHover='hover'
       pos='relative'
       transition='all .2s ease-in-out'
-      zIndex={1}
     >
       <Flex justify='center' p={0}>
         <Box
@@ -117,22 +116,7 @@ export const AbilityCard = ({ card, toolsData }) => {
             h='auto'
             display='block'
             // fallback={`/images/origin/cards/${cardId}.png`}
-            zIndex={1}
-            // pos='absolute'
           />
-
-          {/* <Box
-            pos='absolute'
-            top={['10%', '27px']}
-            left={['10.5%', '19px']}
-            bg='#2b2c2a'
-            borderRadius={20}
-            maxW='200px'
-            minW='140px'
-            w={['89.5%', '161px']}
-            h={['90%', '250px']}
-            zIndex={-1}
-          /> */}
 
           <Box
             pos='absolute'
@@ -141,7 +125,6 @@ export const AbilityCard = ({ card, toolsData }) => {
             fontWeight={500}
             fontSize={[11, 12]}
             fontFamily='Changa One, sans-serif'
-            zIndex={1}
           >
             {cardName}
           </Box>
@@ -156,8 +139,6 @@ export const AbilityCard = ({ card, toolsData }) => {
             fontSize={[10, 10.5, 11, 11.5, 12]}
             lineHeight={['9px', '9.5px', '10px', '11px', '12px']}
             color='#dbdbdb'
-            zIndex={1}
-            // border='1px solid'
           >
             <Description
               descriptionText={description}
