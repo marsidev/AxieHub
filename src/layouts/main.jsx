@@ -36,7 +36,9 @@ export default function Layout({ children }) {
   return (
     <>
       <HeadComponent />
-      <Navbar h='10vh' />
+
+      <Navbar />
+
       <Flex
         as='main'
         minH='80vh'
@@ -50,7 +52,8 @@ export default function Layout({ children }) {
       >
         {children}
       </Flex>
-      <Footer h='10vh' />
+
+      <Footer />
     </>
   )
 }
