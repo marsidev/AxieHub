@@ -64,9 +64,9 @@ export const formatOriginCardsData = data => {
 }
 
 export const formatOriginToolsData = data => {
-  const tools = data.filter(t => t.status === '!1' && t.toolCard === '!1')
-  const statuses = data.filter(t => t.status === '!0' && t.toolCard === '!1')
-  let abilities = data.filter(t => t.status === '!1' && t.toolCard === '!0')
+  const tools = data.filter(t => t.status === false && t.toolCard === false)
+  const statuses = data.filter(t => t.status === true && t.toolCard === false)
+  let abilities = data.filter(t => t.status === false && t.toolCard === true)
 
   abilities = abilities
     .map(a => {
