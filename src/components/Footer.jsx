@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import {
   Box,
   Button,
@@ -13,12 +13,13 @@ import { FaGithub, FaTwitter } from 'react-icons/fa'
 import { FiCoffee } from 'react-icons/fi'
 import Link from '@components/Link'
 import Support from '@components/Support'
+import useSsrValue from '@hooks/useSsrValue'
 
 const TWITTER_URL = 'https://twitter.com/marsigliacr'
 const GITHUB_URL = 'https://github.com/marsigliadev/AxieHub'
 
 const SocialButton = ({ children, href }) => {
-  const size = useBreakpointValue({ base: 'sm', md: 'md' })
+  const size = useSsrValue(useBreakpointValue({ base: 'sm', md: 'md' }))
 
   return (
     <Link href={href} isExternal>
@@ -38,7 +39,7 @@ const SocialButton = ({ children, href }) => {
 }
 
 const SupportButton = ({ handler }) => {
-  const size = useBreakpointValue({ base: 'sm', md: 'md' })
+  const size = useSsrValue(useBreakpointValue({ base: 'sm', md: 'md' }))
 
   return (
     <Button
@@ -59,6 +60,12 @@ const Footer = props => {
     onOpen: openSupportModal,
     onClose: closeSupportModal
   } = useDisclosure()
+
+  const [ssr, setSSR] = useState(true)
+
+  useEffect(() => {
+    setSSR(false)
+  }, [])
 
   return (
     <Box
@@ -103,14 +110,18 @@ const Footer = props => {
             maxW='1100px'
             gap={{ base: 2, md: 4 }}
           >
-            <SupportButton handler={openSupportModal} />
+            {!ssr && (
+              <>
+                <SupportButton handler={openSupportModal} />
 
-            <SocialButton href={GITHUB_URL}>
-              <FaGithub />
-            </SocialButton>
-            <SocialButton href={TWITTER_URL}>
-              <FaTwitter />
-            </SocialButton>
+                <SocialButton href={GITHUB_URL}>
+                  <FaGithub />
+                </SocialButton>
+                <SocialButton href={TWITTER_URL}>
+                  <FaTwitter />
+                </SocialButton>
+              </>
+            )}
           </Flex>
         </Flex>
       </Flex>
