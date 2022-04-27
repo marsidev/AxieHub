@@ -25,8 +25,6 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   else if (type === 'status') data = toolsData.statuses.find(t => t.data?.name === id)
   else if (type === 'tool') data = toolsData.tools.find(t => t.data?.keyword === id)
 
-  const { AXIE_ORIGIN_CARDS_BASE_URL } = process.env
-
   const description = data?.data?.description || 'No data found'
 
   if (type !== 'ability') {
@@ -36,9 +34,7 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   }
 
   const { data: abilityData } = data
-  const { cardImage, name: cardName } = abilityData
-
-  const localCardImage = `/images/origin/tool-cards/${cardImage.replace(AXIE_ORIGIN_CARDS_BASE_URL, '')}`
+  const { name: cardName, imageId } = abilityData
 
   return (
     <Flex justify='center' p={0} zIndex={10}>
@@ -47,14 +43,11 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
         w='170px'
         h='auto'
         margin='auto'
-        // minW='80px'
-        // w={['100%', '100px']}
-        // h={['100%', '150px']}
         color='white'
       >
         <Image
           // src={cardImage}
-          src={localCardImage}
+          src={`/images/origin/cards/${imageId}.webp`}
           w='100%'
           h='auto'
         />
@@ -80,9 +73,7 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
           fontSize={[10, 10.5, 11, 11.5, 12]}
           lineHeight={['9px', '9.5px', '10px', '11px', '12px']}
           color='#dbdbdb'
-          // border='1px solid'
         >
-          {/* <span>{description}</span> */}
           <chakra.span
             dangerouslySetInnerHTML={{ __html: formatData(id, description) }}
           />
