@@ -25,6 +25,8 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   else if (type === 'status') data = toolsData.statuses.find(t => t.data?.name === id)
   else if (type === 'tool') data = toolsData.tools.find(t => t.data?.keyword === id)
 
+  const { AXIE_ORIGIN_CARDS_BASE_URL } = process.env
+
   const description = data?.data?.description || 'No data found'
 
   if (type !== 'ability') {
@@ -36,7 +38,7 @@ export const ToolCard = ({ id = 'Banish', type = 'tool', toolsData }) => {
   const { data: abilityData } = data
   const { cardImage, name: cardName } = abilityData
 
-  const localCardImage = `/images/origin/tool-cards/${cardImage.replace('https://cdn.axieinfinity.com/game/origin-cards/base/', '')}`
+  const localCardImage = `/images/origin/tool-cards/${cardImage.replace(AXIE_ORIGIN_CARDS_BASE_URL, '')}`
 
   return (
     <Flex justify='center' p={0} zIndex={10}>

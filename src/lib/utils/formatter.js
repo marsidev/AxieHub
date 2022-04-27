@@ -1,3 +1,6 @@
+const { AXIE_ORIGIN_CARDS_BASE_URL, AXIE_CLASSIC_CARDS_BASE_URL, AXIE_CLASSIC_EFFECTS_BASE_URL } =
+  process.env
+
 export const formatClassicCardsData = data => {
   let newData = []
   for (const part in data) {
@@ -5,8 +8,9 @@ export const formatClassicCardsData = data => {
     const className = part.split('-')[0]
     const type = part.split('-')[1]
     const partValue = part.split('-')[2]
-    const image = `https://cdn.axieinfinity.com/game/cards/base/${part}.png`
-    const effectImage = `https://cdn.axieinfinity.com/game/cards/effect-icons/${iconId}.png`
+    const image = `${AXIE_CLASSIC_CARDS_BASE_URL}/${part}.png`
+    const effectImage = `${AXIE_CLASSIC_EFFECTS_BASE_URL}/${iconId}.png`
+
     const temp = {
       class: className,
       type,
@@ -34,7 +38,7 @@ export const formatOriginCardsData = data => {
       ...rest
     } = originCard
 
-    const cardImage = `https://cdn.axieinfinity.com/game/origin-cards/base/${cardId}.png`
+    const cardImage = `${AXIE_ORIGIN_CARDS_BASE_URL}/${cardId}.png`
 
     const image = `https://www.axie.tech/images/templates/card/art/${cardId}.jpg`
 
@@ -70,7 +74,7 @@ export const formatOriginToolsData = data => {
 
       const { ability_type: abilityType, ...restOfData } = data
 
-      const cardImage = `https://cdn.axieinfinity.com/game/origin-cards/base/tool-${restOfData.code.toLowerCase()}-02.png`
+      const cardImage = `${AXIE_ORIGIN_CARDS_BASE_URL}/tool-${restOfData.code.toLowerCase()}-02.png`
 
       const image = `https://www.axie.tech/images/templates/card/art/tool-${restOfData.code.toLowerCase()}-02.jpg`
 
