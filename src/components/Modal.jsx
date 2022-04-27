@@ -1,13 +1,5 @@
 import { memo } from 'react'
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalCloseButton
-} from '@chakra-ui/react'
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton } from '@chakra-ui/react'
 
 const MyModal = ({
   isOpen,
@@ -32,8 +24,11 @@ const MyModal = ({
     <ModalOverlay/>
     <ModalContent>
       <ModalHeader>{title}</ModalHeader>
-      {showCloseIcon && <ModalCloseButton/>}
+
+      {showCloseIcon && <ModalCloseButton />}
+
       <ModalBody>{children}</ModalBody>
+
       {footer && <ModalFooter>{footer}</ModalFooter>}
     </ModalContent>
   </Modal>

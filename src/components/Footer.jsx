@@ -1,12 +1,25 @@
 import { memo } from 'react'
-import { Box, Flex, IconButton, useColorModeValue, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  IconButton,
+  useBreakpointValue,
+  useColorModeValue,
+  useDisclosure,
+  Text
+} from '@chakra-ui/react'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FiCoffee } from 'react-icons/fi'
 import Link from '@components/Link'
+import Support from '@components/Support'
 
 const TWITTER_URL = 'https://twitter.com/marsigliacr'
 const GITHUB_URL = 'https://github.com/marsigliadev/AxieHub'
 
 const SocialButton = ({ children, href }) => {
+  const size = useBreakpointValue({ base: 'sm', md: 'md' })
+
   return (
     <Link href={href} isExternal>
       <IconButton
@@ -14,6 +27,7 @@ const SocialButton = ({ children, href }) => {
         variant='ghost'
         borderRadius='full'
         transition='background 0.3s ease'
+        size={size}
         gap={{ base: 'sm', md: 'lg' }}
         _hover={{ bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.300') }}
       >
@@ -23,7 +37,29 @@ const SocialButton = ({ children, href }) => {
   )
 }
 
+const SupportButton = ({ handler }) => {
+  const size = useBreakpointValue({ base: 'sm', md: 'md' })
+
+  return (
+    <Button
+      size={size}
+      leftIcon={<FiCoffee />}
+      colorScheme='pink'
+      variant='solid'
+      onClick={handler}
+    >
+      Support
+    </Button>
+  )
+}
+
 const Footer = props => {
+  const {
+    isOpen: showSupportModal,
+    onOpen: openSupportModal,
+    onClose: closeSupportModal
+  } = useDisclosure()
+
   return (
     <Box
       as='footer'
@@ -34,14 +70,7 @@ const Footer = props => {
       h='auto'
       {...props}
     >
-      <Flex
-        minH='10vh'
-        h='full'
-        mx='auto'
-        maxW='5xl'
-        align='center'
-        py={2}
-      >
+      <Flex minH='10vh' h='full' mx='auto' maxW='5xl' align='center' py={2}>
         <Flex
           justify='space-between'
           align='center'
@@ -74,6 +103,8 @@ const Footer = props => {
             maxW='1100px'
             gap={{ base: 2, md: 4 }}
           >
+            <SupportButton handler={openSupportModal} />
+
             <SocialButton href={GITHUB_URL}>
               <FaGithub />
             </SocialButton>
@@ -83,6 +114,8 @@ const Footer = props => {
           </Flex>
         </Flex>
       </Flex>
+
+      <Support isOpen={showSupportModal} onClose={closeSupportModal} />
     </Box>
   )
 }
