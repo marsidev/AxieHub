@@ -34,7 +34,14 @@ const Footer = props => {
       h='auto'
       {...props}
     >
-      <Flex minH='10vh' h='full' mx='auto' maxW='5xl' align='center' >
+      <Flex
+        minH='10vh'
+        h='full'
+        mx='auto'
+        maxW='5xl'
+        align='center'
+        py={2}
+      >
         <Flex
           justify='space-between'
           align='center'
@@ -61,7 +68,12 @@ const Footer = props => {
             </Text>
           </Flex>
 
-          <Flex align='center' justify='flex-end' maxW='1100px' gap={{ base: 2, md: 4 }} >
+          <Flex
+            align='center'
+            justify='flex-end'
+            maxW='1100px'
+            gap={{ base: 2, md: 4 }}
+          >
             <SocialButton href={GITHUB_URL}>
               <FaGithub />
             </SocialButton>
