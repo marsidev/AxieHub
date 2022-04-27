@@ -1,20 +1,12 @@
-import {
-  Box,
-  Container,
-  HStack,
-  IconButton,
-  Stack,
-  useColorModeValue,
-  Text
-} from '@chakra-ui/react'
+import { memo } from 'react'
+import { Box, Flex, IconButton, useColorModeValue, Text } from '@chakra-ui/react'
 import { FaGithub, FaTwitter } from 'react-icons/fa'
-import useMobile from '@hooks/useMobile'
 import Link from '@components/Link'
 
 const TWITTER_URL = 'https://twitter.com/marsigliacr'
 const GITHUB_URL = 'https://github.com/marsigliadev/AxieHub'
 
-const SocialButton = ({ children, href, isMobile }) => {
+const SocialButton = ({ children, href }) => {
   return (
     <Link href={href} isExternal>
       <IconButton
@@ -22,12 +14,8 @@ const SocialButton = ({ children, href, isMobile }) => {
         variant='ghost'
         borderRadius='full'
         transition='background 0.3s ease'
-        size={isMobile ? 'sm' : 'lg'}
-        _hover={
-          isMobile
-            ? null
-            : { bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.300') }
-        }
+        gap={{ base: 'sm', md: 'lg' }}
+        _hover={{ bg: useColorModeValue('blackAlpha.300', 'whiteAlpha.300') }}
       >
         {children}
       </IconButton>
@@ -36,54 +24,55 @@ const SocialButton = ({ children, href, isMobile }) => {
 }
 
 const Footer = props => {
-  const isMobile = useMobile()
-
   return (
     <Box
       as='footer'
-      bg={useColorModeValue('white', 'whiteAlpha.50')}
+      bg={useColorModeValue('white', 'gray.800')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      shadow='rgba(0, 0, 0, 0.19) 0px 4px 12px, rgba(0, 0, 0, 0.23) 0px 4px 4px'
+      shadow='md'
+      width='100%'
+      h='auto'
       {...props}
     >
-      <Container
-        as={Stack}
-        maxW='5xl'
-        py={2}
-        direction={{ base: 'column', md: 'row' }}
-        spacing={isMobile ? 2 : 4}
-        justify='space-between'
-        align='center'
-      >
-
-        <Box>
-          <Text
-            color={useColorModeValue('#8e8e8e', 'gray.500')}
-            fontSize='14px'
-          >
-            {'Made with ♥ by '}
-            <Link
-              href={TWITTER_URL}
-              color={useColorModeValue('blue.600', 'blue.300')}
-              isExternal
+      <Flex minH='10vh' h='full' mx='auto' maxW='5xl' align='center' >
+        <Flex
+          justify='space-between'
+          align='center'
+          w='100%'
+          h='100%'
+          px={6}
+          flexDir={{ base: 'column', md: 'row' }}
+          gap={{ base: 2, md: 0 }}
+        >
+          <Flex align='left' justify='flex-start'>
+            <Text
+              color={useColorModeValue('#8e8e8e', 'gray.500')}
+              fontSize='14px'
             >
-              Luis Marsiglia
-            </Link>
-            {'.'}
-          </Text>
-        </Box>
+              {'Made with ♥ by '}
+              <Link
+                href={TWITTER_URL}
+                color={useColorModeValue('blue.600', 'blue.300')}
+                isExternal
+              >
+                Luis Marsiglia
+              </Link>
+              {'.'}
+            </Text>
+          </Flex>
 
-        <HStack spacing={isMobile ? 2 : 4} align='center'>
-          <SocialButton href={GITHUB_URL} isMobile={isMobile}>
-            <FaGithub />
-          </SocialButton>
-          <SocialButton href={TWITTER_URL} isMobile={isMobile}>
-            <FaTwitter />
-          </SocialButton>
-        </HStack>
-      </Container>
+          <Flex align='center' justify='flex-end' maxW='1100px' gap={{ base: 2, md: 4 }} >
+            <SocialButton href={GITHUB_URL}>
+              <FaGithub />
+            </SocialButton>
+            <SocialButton href={TWITTER_URL}>
+              <FaTwitter />
+            </SocialButton>
+          </Flex>
+        </Flex>
+      </Flex>
     </Box>
   )
 }
 
-export default Footer
+export default memo(Footer)
