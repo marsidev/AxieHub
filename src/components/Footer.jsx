@@ -44,7 +44,7 @@ const SupportButton = ({ handler }) => {
     <Button
       size={size}
       leftIcon={<FiCoffee />}
-      colorScheme='pink'
+      colorScheme='axie'
       variant='solid'
       onClick={handler}
     >
