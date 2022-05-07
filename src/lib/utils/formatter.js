@@ -1,5 +1,5 @@
-const { AXIE_ORIGIN_CARDS_BASE_URL, AXIE_CLASSIC_CARDS_BASE_URL, AXIE_CLASSIC_EFFECTS_BASE_URL } =
-  process.env
+const { AXIE_CLASSIC_CARDS_BASE_URL, AXIE_CLASSIC_EFFECTS_BASE_URL } = process.env
+const AXIE_ORIGIN_CARDS_BASE_URL = 'https://cdn.axieinfinity.com/game/origin-cards/base/version-20220125'
 
 export const formatClassicCardsData = data => {
   let newData = []
