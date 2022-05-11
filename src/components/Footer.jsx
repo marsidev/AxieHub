@@ -16,7 +16,7 @@ import Support from '@components/Support'
 import useSsrValue from '@hooks/useSsrValue'
 
 const TWITTER_URL = 'https://twitter.com/marsigliacr'
-const GITHUB_URL = 'https://github.com/marsigliadev/AxieHub'
+const GITHUB_URL = 'https://github.com/marsidev/AxieHub'
 
 const SocialButton = ({ children, href }) => {
   const size = useSsrValue(useBreakpointValue({ base: 'sm', md: 'md' }))
