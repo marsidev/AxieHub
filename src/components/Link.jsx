@@ -1,12 +1,10 @@
-import { Link } from '@chakra-ui/react'
+import { Link as ChakraLink, forwardRef } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
-const CustomLink = ({ href, children, ...props }) => (
-  <NextLink passHref href={href}>
-    <Link _focus={false} _hover={{ textDecoration: 'none' }} {...props}>
-      {children}
-    </Link>
-  </NextLink>
-)
+export const Link = forwardRef(({ children, ...props }, ref) => (
+  <ChakraLink _focus={false} _hover={{ textDecoration: 'none' }} ref={ref} as={NextLink} {...props}>
+    {children}
+  </ChakraLink>
+))
 
-export default CustomLink
+export default Link
