@@ -51,7 +51,7 @@ Any contributions you make are greatly appreciated. If you have a suggestion tha
 ## Contact
 
   **Luis Marsiglia**
-  - [Twitter](https://twitter.com/marsigliacr)
+  - [Twitter](https://twitter.com/marsidev)
   - [Email](mailto:marsiglia.business@gmail.com)
 
 <p align="right"><a href="#top">Back to top 🔼</a></p>
